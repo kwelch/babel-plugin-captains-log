@@ -3,12 +3,12 @@
 [![version](https://img.shields.io/npm/v/babel-plugin-captains-log.svg?style=flat-square)](http://npm.im/babel-plugin-captains-log)
 [![downloads](https://img.shields.io/npm/dm/babel-plugin-captains-log.svg?style=flat-square)](http://npm-stat.com/charts.html?package=babel-plugin-captains-log)
 [![Travis Build Status](https://img.shields.io/travis/kwelch/babel-plugin-captains-log.svg?style=flat-square)](https://travis-ci.org/kwelch/babel-plugin-captains-log)
-[![codecov](https://codecov.io/gh/kwelch/babel-plugin-captains-log/branch/master/graph/badge.svg)](https://codecov.io/gh/kwelch/babel-plugin-captains-log)
+[![codecov](https://codecov.io/gh/kwelch/babel-plugin-captains-log/branch/master/graph/badge.svg?style=flat-square)](https://codecov.io/gh/kwelch/babel-plugin-captains-log)
 
 [![MIT License](https://img.shields.io/npm/l/kwelch.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![Roadmap](https://img.shields.io/badge/%F0%9F%93%94-roadmap-CD9523.svg?style=flat-square)]([roadmap])
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 
 [![Watch on GitHub](https://img.shields.io/github/watchers/kwelch/babel-plugin-captains-log.svg?style=social)](https://github.com/kwelch/babel-plugin-captains-log/watchers)
 [![Star on GitHub](https://img.shields.io/github/stars/kwelch/babel-plugin-captains-log.svg?style=social)](https://github.com/kwelch/babel-plugin-captains-log/stargazers)
