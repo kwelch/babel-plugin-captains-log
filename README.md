@@ -85,7 +85,7 @@ MIT
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars0.githubusercontent.com/u/1295580?v=3" width="100px;"/><br /><sub>Kyle Welch</sub>](http://www.krwelch.com)<br />[💻](https://github.com/Kyle Welch <kyle@krwelch.com> (http://www.krwelch.com/)/babel-plugin-captains-log/commits?author=kwelch "Code") [📖](https://github.com/Kyle Welch <kyle@krwelch.com> (http://www.krwelch.com/)/babel-plugin-captains-log/commits?author=kwelch "Documentation") [⚠️](https://github.com/Kyle Welch <kyle@krwelch.com> (http://www.krwelch.com/)/babel-plugin-captains-log/commits?author=kwelch "Tests") |
+| [<img src="https://avatars0.githubusercontent.com/u/1295580?v=3" width="100px;"/><br /><sub>Kyle Welch</sub>](http://www.krwelch.com)<br />[💻](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Code") [📖](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Documentation") [⚠️](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Tests") |
 | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
