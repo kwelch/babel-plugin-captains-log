@@ -1,0 +1,23 @@
+function logAll() {
+  console.assert("assert");
+  console.clear();
+  console.count("count");
+  console.debug("debug");
+  console.dir("dir");
+  console.error("error");
+  console.exception("exception");
+  console.group("group");
+  console.groupCollapsed("groupCollapsed");
+  console.groupEnd("group");
+  console.groupEnd("groupCollapsed");
+  console.info("info");
+  console.log("log");
+  console.profile("profile");
+  console.profileEnd("profile");
+  console.select(el);
+  console.table(["table"]);
+  console.time("time");
+  console.timeEnd("time");
+  console.trace("trace");
+  console.warn("warn");
+}

@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`class.js 1`] = `
+"class WrapClass {
+  constructor() {
+    console.log(\\"ctr\\");
+  }
+
+  render() {
+    console.log(\\"Component\\");
+    items.map(i => {
+      console.log(i);
+      return i.name;
+    });
+    return null;
+  }
+  namedArrow = () => {
+    console.debug(\\"test\\");
+  };
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+class WrapClass {
+  constructor() {
+    this.namedArrow = () => {
+      console.debug(\\"WrapClass.namedArrow:\\", \\"test\\");
+    };
+
+    console.log(\\"WrapClass.constructor:\\", \\"ctr\\");
+  }
+
+  render() {
+    console.log(\\"WrapClass.render:\\", \\"Component\\");
+    items.map(i => {
+      console.log(\\"WrapClass.render.[items.map]:\\", i);
+      return i.name;
+    });
+    return null;
+  }
+}"
+`;
+
+exports[`factory.js 1`] = `
+"const factory = () => class WrapClass {
+  constructor() {
+    console.log(\\"ctr\\");
+  }
+  namedArrow = () => {
+    console.debug(\\"test\\");
+  };
+};
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const factory = () => {
+  return class WrapClass {
+    constructor() {
+      this.namedArrow = () => {
+        console.debug(\\"factory.WrapClass.namedArrow:\\", \\"test\\");
+      };
+
+      console.log(\\"factory.WrapClass.constructor:\\", \\"ctr\\");
+    }
+  };
+};"
+`;
+
+exports[`method.js 1`] = `
+"function logAll() {
+  console.assert(\\"assert\\");
+  console.clear();
+  console.count(\\"count\\");
+  console.debug(\\"debug\\");
+  console.dir(\\"dir\\");
+  console.error(\\"error\\");
+  console.exception(\\"exception\\");
+  console.group(\\"group\\");
+  console.groupCollapsed(\\"groupCollapsed\\");
+  console.groupEnd(\\"group\\");
+  console.groupEnd(\\"groupCollapsed\\");
+  console.info(\\"info\\");
+  console.log(\\"log\\");
+  console.profile(\\"profile\\");
+  console.profileEnd(\\"profile\\");
+  console.select(el);
+  console.table([\\"table\\"]);
+  console.time(\\"time\\");
+  console.timeEnd(\\"time\\");
+  console.trace(\\"trace\\");
+  console.warn(\\"warn\\");
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function logAll() {
+  console.assert(\\"logAll:\\", \\"assert\\");
+  console.clear(\\"logAll:\\");
+  console.count(\\"logAll:\\", \\"count\\");
+  console.debug(\\"logAll:\\", \\"debug\\");
+  console.dir(\\"logAll:\\", \\"dir\\");
+  console.error(\\"logAll:\\", \\"error\\");
+  console.exception(\\"logAll:\\", \\"exception\\");
+  console.group(\\"logAll:\\", \\"group\\");
+  console.groupCollapsed(\\"logAll:\\", \\"groupCollapsed\\");
+  console.groupEnd(\\"logAll:\\", \\"group\\");
+  console.groupEnd(\\"logAll:\\", \\"groupCollapsed\\");
+  console.info(\\"logAll:\\", \\"info\\");
+  console.log(\\"logAll:\\", \\"log\\");
+  console.profile(\\"logAll:\\", \\"profile\\");
+  console.profileEnd(\\"logAll:\\", \\"profile\\");
+  console.select(\\"logAll:\\", el);
+  console.table(\\"logAll:\\", [\\"table\\"]);
+  console.time(\\"logAll:\\", \\"time\\");
+  console.timeEnd(\\"logAll:\\", \\"time\\");
+  console.trace(\\"logAll:\\", \\"trace\\");
+  console.warn(\\"logAll:\\", \\"warn\\");
+}"
+`;
+
+exports[`nesting.js 1`] = `
+"function topLevel() {
+  console.log(\\"a\\");
+  const level1 = () => {
+    console.log(\\"b\\");
+
+    const level2 = () => {
+      console.log(\\"c\\");
+    };
+    const level2b = () => {
+      console.log(\\"d\\");
+
+      const level3 = () => {
+        console.log(\\"e\\");
+      };
+    };
+  };
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function topLevel() {
+  console.log(\\"topLevel:\\", \\"a\\");
+  const level1 = () => {
+    console.log(\\"topLevel.level1:\\", \\"b\\");
+
+    const level2 = () => {
+      console.log(\\"topLevel.level1.level2:\\", \\"c\\");
+    };
+    const level2b = () => {
+      console.log(\\"topLevel.level1.level2b:\\", \\"d\\");
+
+      const level3 = () => {
+        console.log(\\"topLevel.level1.level2b.level3:\\", \\"e\\");
+      };
+    };
+  };
+}"
+`;
+
+exports[`simple.js 1`] = `
+"function add(a, b) {
+  console.log(a, b);
+  return a + b;
+}
+
+const subtract = (a, b) => {
+  console.log(a, b);
+  return a - b;
+};
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function add(a, b) {
+  console.log(\\"add:\\", a, b);
+  return a + b;
+}
+
+const subtract = (a, b) => {
+  console.log(\\"subtract:\\", a, b);
+  return a - b;
+};"
+`;
