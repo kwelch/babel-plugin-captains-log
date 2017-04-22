@@ -21,27 +21,16 @@
 Current version only injects the console statments scope. 
 
 **Transforms**
-```
+```diff
 function add(a, b) {
-  console.log(a, b);
+-  console.log(a, b);
++  console.log("add:", a, b);
   return a + b;
 }
 
 const subtract = (a, b) => {
-  console.log(a, b);
-  return a - b;
-};
-```
-
-**Into**
-```
-function add(a, b) {
-  console.log("add:", a, b);
-  return a + b;
-}
-
-const subtract = (a, b) => {
-  console.log("subtract:", a, b);
+-  console.log(a, b);
++  console.log("subtract:", a, b);
   return a - b;
 };
 ```
