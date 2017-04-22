@@ -14,17 +14,15 @@ exports[`class.js 1`] = `
     });
     return null;
   }
-  namedArrow = () => {
-    console.debug(\\"test\\");
-  };
+
+  // todo: make it work with stage-2
+  // namedArrow = () => {
+  //   console.debug(\\"test\\");
+  // };
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 class WrapClass {
   constructor() {
-    this.namedArrow = () => {
-      console.debug(\\"WrapClass.namedArrow:\\", \\"test\\");
-    };
-
     console.log(\\"WrapClass.constructor:\\", \\"ctr\\");
   }
 
@@ -36,6 +34,11 @@ class WrapClass {
     });
     return null;
   }
+
+  // todo: make it work with stage-2
+  // namedArrow = () => {
+  //   console.debug(\\"test\\");
+  // };
 }"
 `;
 
@@ -44,21 +47,20 @@ exports[`factory.js 1`] = `
   constructor() {
     console.log(\\"ctr\\");
   }
-  namedArrow = () => {
-    console.debug(\\"test\\");
-  };
+  // todo: make it work with stage-2
+  // namedArrow = () => {
+  //   console.debug(\\"test\\");
+  // };
 };
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const factory = () => {
-  return class WrapClass {
-    constructor() {
-      this.namedArrow = () => {
-        console.debug(\\"factory.WrapClass.namedArrow:\\", \\"test\\");
-      };
-
-      console.log(\\"factory.WrapClass.constructor:\\", \\"ctr\\");
-    }
-  };
+const factory = () => class WrapClass {
+  constructor() {
+    console.log(\\"factory.WrapClass.constructor:\\", \\"ctr\\");
+  }
+  // todo: make it work with stage-2
+  // namedArrow = () => {
+  //   console.debug(\\"test\\");
+  // };
 };"
 `;
 
