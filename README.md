@@ -69,12 +69,12 @@ Settings and options are below.
 
 ## Roadmap
 
-- [] Handle alias for console/ desctructored methods
-- [] Arrow functions within classes (stage-2 integration)
-- [] Add config for methods
-- [] Add ability to label variables in console statments
-- [] Add ability to timestamp console statements
-- [] Add ability to auto add console statements to methods
+- [ ] Handle alias for console/ desctructored methods
+- [ ] Arrow functions within classes (stage-2 integration)
+- [ ] Add config for methods
+- [ ] Add ability to label variables in console statments
+- [ ] Add ability to timestamp console statements
+- [ ] Add ability to auto add console statements to methods
 
 ## License
 
