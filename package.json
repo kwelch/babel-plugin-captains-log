@@ -11,7 +11,8 @@
     "build": "babel --copy-files --out-dir dist --ignore *.spec.js,__mocks__,__snapshots__ src",
     "report-coverage": "codecov",
     "contribute": "all-contributors",
-    "release": "semantic-release pre && npm publish && semantic-release post"
+    "release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
     "babel",
