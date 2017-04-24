@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`bugs.js 1`] = `
+"function argsIsNotArray() {
+  console.warn;
+}
+
+function consoleAssigned() {
+  const c = console;
+  c.warn(\\"not prepended becase we don't catch assignements\\");
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function argsIsNotArray() {
+  console.warn;
+}
+
+function consoleAssigned() {
+  const c = console;
+  c.warn(\\"not prepended becase we don't catch assignements\\");
+}"
+`;
+
 exports[`class.js 1`] = `
 "class WrapClass {
   constructor() {
