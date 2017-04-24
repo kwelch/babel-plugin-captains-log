@@ -18,19 +18,21 @@
 
 `babel-plugin-captains-log` injects helpful details into console statements.
 
-Current version only injects the console statments scope. 
+Default bahavior:
+- Prepend console statement scope
+- add inject variable name into console statements
 
 **Transforms**
 ```diff
 function add(a, b) {
 -  console.log(a, b);
-+  console.log("add:", a, b);
++  console.log("add:", "a", a, "b", b);
   return a + b;
 }
 
 const subtract = (a, b) => {
 -  console.log(a, b);
-+  console.log("subtract:", a, b);
++  console.log("subtract:", "a", a, "b", b);
   return a - b;
 };
 ```
@@ -62,7 +64,7 @@ Settings and options are below.
 - [ ] Handle alias for console/ desctructored methods
 - [ ] Arrow functions within classes (stage-2 integration)
 - [ ] Add config for methods
-- [ ] Add ability to label variables in console statments
+- [x] Add ability to label variables in console statments
 - [ ] Add ability to timestamp console statements
 - [ ] Add ability to auto add console statements to methods
 

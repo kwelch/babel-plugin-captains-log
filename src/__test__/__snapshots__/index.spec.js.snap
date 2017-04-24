@@ -49,7 +49,7 @@ class WrapClass {
   render() {
     console.log(\\"WrapClass.render:\\", \\"Component\\");
     items.map(i => {
-      console.log(\\"WrapClass.render.[items.map]:\\", i);
+      console.log(\\"WrapClass.render.[items.map]:\\", \\"i\\", i);
       return i.name;
     });
     return null;
@@ -125,7 +125,7 @@ function logAll() {
   console.log(\\"logAll:\\", \\"log\\");
   console.profile(\\"logAll:\\", \\"profile\\");
   console.profileEnd(\\"logAll:\\", \\"profile\\");
-  console.select(\\"logAll:\\", el);
+  console.select(\\"logAll:\\", \\"el\\", el);
   console.table(\\"logAll:\\", [\\"table\\"]);
   console.time(\\"logAll:\\", \\"time\\");
   console.timeEnd(\\"logAll:\\", \\"time\\");
@@ -184,12 +184,12 @@ const subtract = (a, b) => {
 };
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function add(a, b) {
-  console.log(\\"add:\\", a, b);
+  console.log(\\"add:\\", \\"a\\", a, \\"b\\", b);
   return a + b;
 }
 
 const subtract = (a, b) => {
-  console.log(\\"subtract:\\", a, b);
+  console.log(\\"subtract:\\", \\"a\\", a, \\"b\\", b);
   return a - b;
 };"
 `;
