@@ -40,13 +40,25 @@ export default function({ types: t }) {
     return buildScope(functionParent, scope);
   };
 
+  const injectVariableNames = (args = []) => {
+    return args.reduce((acc, arg) => {
+      if (t.isIdentifier(arg)) {
+        return [...acc, t.stringLiteral(arg.name), arg];
+      }
+      return [...acc, arg];
+    }, []);
+  };
+
   return {
     name: "babel-plugin-captains-log", // not required
     visitor: {
       MemberExpression(path) {
         if (path.get("object").isIdentifier({ name: "console" })) {
-          const scope = buildScope(path);
           if (path.parent.arguments && Array.isArray(path.parent.arguments)) {
+            // add variable names
+            path.parent.arguments = injectVariableNames(path.parent.arguments);
+            // prepend console statement scope
+            const scope = buildScope(path);
             path.parent.arguments.unshift(
               t.stringLiteral(`${scope.reverse().join(".")}:`)
             );
