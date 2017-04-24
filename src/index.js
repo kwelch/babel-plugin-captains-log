@@ -46,9 +46,11 @@ export default function({ types: t }) {
       MemberExpression(path) {
         if (path.get("object").isIdentifier({ name: "console" })) {
           const scope = buildScope(path);
-          path.parent.arguments.unshift(
-            t.stringLiteral(`${scope.reverse().join(".")}:`)
-          );
+          if (path.parent.arguments && Array.isArray(path.parent.arguments)) {
+            path.parent.arguments.unshift(
+              t.stringLiteral(`${scope.reverse().join(".")}:`)
+            );
+          }
         }
       }
     }
