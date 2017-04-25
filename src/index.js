@@ -1,6 +1,7 @@
 const defaultSettings = {
   injectScope: true,
-  injectVariableName: true
+  injectVariableName: true,
+  injectFileName: false
 };
 
 const defaultMethods = ["debug", "error", "exception", "info", "log", "warn"];
@@ -72,10 +73,14 @@ export default function({ types: t }) {
     return path.get("object").isIdentifier({ name: "console" });
   };
 
+  const prependArguments = (args = [], value) => {
+    args.unshift(t.stringLiteral(value));
+  };
+
   return {
     name: "babel-plugin-captains-log", // not required
     visitor: {
-      MemberExpression(path, { opts }) {
+      MemberExpression(path, { file, opts }) {
         if (!isConsoleStatement(path)) {
           return;
         }
@@ -95,12 +100,15 @@ export default function({ types: t }) {
           if (options.injectVariableName) {
             parent.arguments = injectVariableNames(parent.arguments);
           }
+          // prepend filename
+          if (options.injectFileName) {
+            prependArguments(parent.arguments, file.opts.filename);
+          }
+
           // prepend console statement scope
           if (options.injectScope) {
             const scope = buildScope(path);
-            parent.arguments.unshift(
-              t.stringLiteral(`${scope.reverse().join(".")}:`)
-            );
+            prependArguments(parent.arguments, `${scope.reverse().join(".")}:`);
           }
         }
       }
