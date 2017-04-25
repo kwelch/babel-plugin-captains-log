@@ -4,5 +4,6 @@ function argsIsNotArray() {
 
 function consoleAssigned() {
   const c = console;
-  c.warn("not prepended becase we don't catch assignements");
+  // see [#4](https://github.com/kwelch/babel-plugin-captains-log/issues/4)
+  c.warn("not prepended because we don't catch assignments");
 }
