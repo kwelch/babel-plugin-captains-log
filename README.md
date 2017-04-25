@@ -104,6 +104,19 @@ Flags are values set for all methods and are used to turn that feature on or off
 }
 ```
 
+#### Inject File Name
+**Default**: `false`
+
+```
+{
+  plugins: [
+    ["captains-log", {
+      injectFileName: true
+    }]
+  ]
+}
+```
+
 ## Roadmap
 
 - [ ] Add ability to timestamp console statements
