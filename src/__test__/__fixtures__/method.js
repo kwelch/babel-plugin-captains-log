@@ -1,20 +1,19 @@
 function logAll() {
-  console.assert("assert");
+  console.assert(1 === 1);
   console.clear();
   console.count("count");
   console.debug("debug");
-  console.dir("dir");
+  console.dir(obj);
   console.error("error");
   console.exception("exception");
   console.group("group");
-  console.groupCollapsed("groupCollapsed");
   console.groupEnd("group");
+  console.groupCollapsed("groupCollapsed");
   console.groupEnd("groupCollapsed");
   console.info("info");
   console.log("log");
   console.profile("profile");
   console.profileEnd("profile");
-  console.select(el);
   console.table(["table"]);
   console.time("time");
   console.timeEnd("time");

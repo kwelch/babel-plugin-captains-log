@@ -56,15 +56,56 @@ To include the plugin in your project, create or open your .babelrc file at the 
   plugins: ["captains-log"]
 }
 ```
-Settings and options are below.
 
+## Options
+
+### Methods
+This option provides control over which console statments are adjusted. Methods is set within your `.babelrc` as an array.
+
+**Default**: `["debug", "error", "exception", "info", "log", "warn"]`
+
+```
+{
+  plugins: [
+    ["captains-log", {
+      methods: ['debug', 'info']
+    }]
+  ]
+}
+```
+
+### Flags
+Flags are values set for all methods and are used to turn that feature on or off. Flags are not merged with defaults to allow for maximum control.
+
+
+#### Variable Name
+**Default**: `true`
+
+```
+{
+  plugins: [
+    ["captains-log", {
+      injectVariableName: true
+    }]
+  ]
+}
+```
+
+#### Inject Scope
+**Default**: `true`
+
+```
+{
+  plugins: [
+    ["captains-log", {
+      injectScope: true
+    }]
+  ]
+}
+```
 
 ## Roadmap
 
-- [ ] Handle alias for console/ desctructored methods
-- [ ] Arrow functions within classes (stage-2 integration)
-- [ ] Add config for methods
-- [x] Add ability to label variables in console statments
 - [ ] Add ability to timestamp console statements
 - [ ] Add ability to auto add console statements to methods
 

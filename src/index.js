@@ -1,3 +1,10 @@
+const defaultSettings = {
+  injectScope: true,
+  injectVariableName: true
+};
+
+const defaultMethods = ["debug", "error", "exception", "info", "log", "warn"];
+
 export default function({ types: t }) {
   const buildScope = (path, scope = []) => {
     const functionParent = path.getFunctionParent();
@@ -49,17 +56,49 @@ export default function({ types: t }) {
     }, []);
   };
 
+  const buildSettings = opts => {
+    const { methods, ...flags } = opts;
+    // output speards the flags over each method
+    // in the future this could be expanded to allow method level config
+    return (methods || defaultMethods).reduce((acc, curr) => {
+      return {
+        ...acc,
+        [curr]: Object.values(flags).length ? flags : defaultSettings
+      };
+    }, {});
+  };
+
+  const isConsoleStatement = path => {
+    return path.get("object").isIdentifier({ name: "console" });
+  };
+
   return {
     name: "babel-plugin-captains-log", // not required
     visitor: {
-      MemberExpression(path) {
-        if (path.get("object").isIdentifier({ name: "console" })) {
-          if (path.parent.arguments && Array.isArray(path.parent.arguments)) {
-            // add variable names
-            path.parent.arguments = injectVariableNames(path.parent.arguments);
-            // prepend console statement scope
+      MemberExpression(path, { opts }) {
+        if (!isConsoleStatement(path)) {
+          return;
+        }
+        const settings = buildSettings(opts || {});
+        if (!Object.keys(settings).includes(path.node.property.name)) {
+          return;
+        }
+        const options = settings[path.node.property.name];
+        // console.log(options);
+        const parent = path.parent;
+        if (
+          t.isCallExpression(parent) &&
+          parent.arguments &&
+          Array.isArray(parent.arguments)
+        ) {
+          // add variable names
+          if (options.injectVariableName) {
+            parent.arguments = injectVariableNames(parent.arguments);
+          }
+          // prepend console statement scope
+          if (options.injectScope) {
             const scope = buildScope(path);
-            path.parent.arguments.unshift(
+            parent.arguments.unshift(
               t.stringLiteral(`${scope.reverse().join(".")}:`)
             );
           }
