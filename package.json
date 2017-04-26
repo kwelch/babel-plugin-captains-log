@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-captains-log",
-  "version": "0.0.0-development",
+  "version": "0.3.0",
   "files": [
     "dist"
   ],
