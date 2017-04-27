@@ -49,5 +49,8 @@
       "/node_modules",
       "__test__"
     ]
+  },
+  "dependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0"
   }
 }
