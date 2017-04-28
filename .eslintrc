@@ -1,0 +1,20 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "env": {
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore"
+      }
+    ]
+  }
+}
