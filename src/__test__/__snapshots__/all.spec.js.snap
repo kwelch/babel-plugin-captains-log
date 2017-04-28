@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`all.js 1`] = `
+"console.log(a);
+console.log(a.length);
+console.log(a.map());
+
+function add() {
+  console.log(\\"1\\");
+}
+
+const subtract = () => {
+  console.log(\\"2\\");
+};
+
+let multiply;
+multiple = () => {
+  console.log(\\"3\\");
+};
+
+let divide;
+divide = function() {
+  console.log(\\"4\\");
+};
+
+const power = function pow() {
+  console.log(5);
+};
+
+const obj = {
+  method1: function() {
+    console.log(6);
+  },
+  method2: () => {
+    console.log(7);
+  },
+  method3() {
+    console.log(8);
+  },
+};
+
+const Component = () => {
+  const privateMethod = () => {
+    console.log(1);
+  };
+  return class {
+    showList = () => {
+      arr.map(i => {
+        console.log(i);
+      });
+    };
+    render() {
+      console.log(2);
+    }
+  };
+};
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\\"use strict\\";
+
+var _classCallCheck2 = require(\\"babel-runtime/helpers/classCallCheck\\");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require(\\"babel-runtime/helpers/createClass\\");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+console.log(\\"all.js(1:0)\\", \\"a\\", a);
+console.log(\\"all.js(2:0)\\", a.length);
+console.log(\\"all.js(3:0)\\", a.map());
+
+function add() {
+  console.log(\\"all.js(6:2)\\", \\"1\\");
+}
+
+var subtract = function subtract() {
+  console.log(\\"all.js(10:2)\\", \\"2\\");
+};
+
+var multiply = void 0;
+multiple = function multiple() {
+  console.log(\\"all.js(15:2)\\", \\"3\\");
+};
+
+var divide = void 0;
+divide = function divide() {
+  console.log(\\"all.js(20:2)\\", \\"4\\");
+};
+
+var power = function pow() {
+  console.log(\\"all.js(24:2)\\", 5);
+};
+
+var obj = {
+  method1: function method1() {
+    console.log(\\"all.js(29:4)\\", 6);
+  },
+  method2: function method2() {
+    console.log(\\"all.js(32:4)\\", 7);
+  },
+  method3: function method3() {
+    console.log(\\"all.js(35:4)\\", 8);
+  }
+};
+
+var Component = function Component() {
+  var privateMethod = function privateMethod() {
+    console.log(\\"all.js(41:4)\\", 1);
+  };
+  return function () {
+    function _class2() {
+      (0, _classCallCheck3.default)(this, _class2);
+
+      this.showList = function () {
+        arr.map(function (i) {
+          console.log(\\"all.js(46:8)\\", \\"all.js(46:8)\\", \\"all.js(46:8)\\", \\"i\\", \\"i\\", \\"i\\", i);
+        });
+      };
+    }
+
+    (0, _createClass3.default)(_class2, [{
+      key: \\"render\\",
+      value: function render() {
+        console.log(\\"all.js(50:6)\\", 2);
+      }
+    }]);
+    return _class2;
+  }();
+};"
+`;

@@ -1,3 +1,7 @@
 import runSpec from "./run_spec";
 
-runSpec("default");
+runSpec("full", {
+  injectScope: true,
+  injectVariableName: true,
+  injectFileName: true,
+});

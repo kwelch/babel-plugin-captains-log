@@ -1,53 +1,31 @@
 const defaultSettings = {
   injectScope: true,
   injectVariableName: true,
-  injectFileName: false
+  injectFileName: true,
 };
 
 const defaultMethods = ["debug", "error", "exception", "info", "log", "warn"];
 
-export default function({ types: t }) {
-  const buildScope = (path, scope = []) => {
-    const functionParent = path.getFunctionParent();
-    if (!functionParent) {
-      return scope;
-    }
-    if (functionParent.isFunctionDeclaration()) {
-      scope.push(functionParent.node.id.name);
-    } else if (
-      t.isClassProperty(functionParent) || t.isClassMethod(functionParent)
-    ) {
-      scope.push(functionParent.node.key.name);
-      const classBody = functionParent.findParent(
-        path => path.isClassDeclaration() || path.isClassExpression()
-      );
-      if (classBody) {
-        scope.push(classBody.node.id.name);
-        return buildScope(classBody, scope);
+function looksLike(a, b) {
+  return (
+    a &&
+    b &&
+    Object.keys(b).every(bKey => {
+      const bVal = b[bKey];
+      const aVal = a[bKey];
+      if (typeof bVal === "function") {
+        return bVal(aVal);
       }
-    } else if (functionParent.isArrowFunctionExpression()) {
-      const arrFuncParent = functionParent.findParent(path => path);
-      if (t.isVariableDeclarator(arrFuncParent)) {
-        scope.push(arrFuncParent.node.id.name);
-      } else if (
-        t.isClassProperty(arrFuncParent) || t.isClassMethod(arrFuncParent)
-      ) {
-        scope.push(arrFuncParent.node.key.name);
-        const classBody = arrFuncParent.findParent(
-          path => path.isClassDeclaration() || path.isClassExpression()
-        );
-        if (classBody) {
-          scope.push(classBody.node.id.name);
-          return buildScope(classBody, scope);
-        }
-      } else if (t.isCallExpression(arrFuncParent)) {
-        const { callee } = arrFuncParent.node;
-        scope.push(`[${callee.object.name}.${callee.property.name}]`);
-      }
-    }
-    return buildScope(functionParent, scope);
-  };
+      return isPrimitive(bVal) ? bVal === aVal : looksLike(aVal, bVal);
+    })
+  );
+}
 
+function isPrimitive(val) {
+  return val == null || /^[sbn]/.test(typeof val);
+}
+
+export default function({ types: t }) {
   const injectVariableNames = (args = []) => {
     return args.reduce((acc, arg) => {
       if (t.isIdentifier(arg)) {
@@ -59,59 +37,120 @@ export default function({ types: t }) {
 
   const buildSettings = opts => {
     const { methods, ...flags } = opts;
-    // output speards the flags over each method
+    // output spreads the flags over each method
     // in the future this could be expanded to allow method level config
     return (methods || defaultMethods).reduce((acc, curr) => {
       return {
         ...acc,
-        [curr]: Object.values(flags).length ? flags : defaultSettings
+        [curr]: Object.values(flags).length ? flags : defaultSettings,
       };
     }, {});
   };
 
-  const isConsoleStatement = path => {
-    return path.get("object").isIdentifier({ name: "console" });
+  const findCallScope = (path, scope = "") => {
+    const parentFunc = path.findParent(t.isFunction);
+    if (parentFunc) {
+      if (!scope) {
+        scope = "scoped-console";
+      }
+      if (t.isFunctionDeclaration(parentFunc)) {
+        return findCallScope(
+          parentFunc,
+          `${parentFunc.node.id.name}{${scope}}`
+        );
+      }
+      if (
+        t.isFunctionExpression(parentFunc) ||
+        t.isArrowFunctionExpression(parentFunc)
+      ) {
+        if (looksLike(parentFunc.parent, { type: "VariableDeclarator" })) {
+          return findCallScope(
+            parentFunc.parentPath,
+            `${parentFunc.parent.id.name}(${scope})`
+          );
+        }
+        if (looksLike(parentFunc.parent, { type: "AssignmentExpression" })) {
+          return findCallScope(
+            parentFunc.parentPath,
+            `${parentFunc.parent.left.name}(${scope})`
+          );
+        }
+        if (looksLike(parentFunc.parent, { type: "ObjectProperty" })) {
+          return findCallScope(
+            parentFunc.parentPath,
+            `${parentFunc.parent.key.name}(${scope})`
+          );
+        }
+      }
+      if (t.isObjectMethod(parentFunc) || parentFunc.isClassMethod()) {
+        return findCallScope(
+          parentFunc.parentPath,
+          `${parentFunc.node.key.name}(${scope})`
+        );
+      }
+    }
+    return scope;
   };
 
   const prependArguments = (args = [], value) => {
-    args.unshift(t.stringLiteral(value));
+    if (value) {
+      return [t.stringLiteral(value), ...args];
+    }
+    return args;
   };
 
   return {
     name: "babel-plugin-captains-log", // not required
     visitor: {
-      MemberExpression(path, { file, opts }) {
-        if (!isConsoleStatement(path)) {
+      Identifier: (path, { file, opts }) => {
+        if (!looksLike(path.node, { name: "console" })) {
           return;
         }
-        const settings = buildSettings(opts || {});
-        if (!Object.keys(settings).includes(path.node.property.name)) {
+        const parentMemExp = path.parentPath;
+        if (!parentMemExp.isMemberExpression()) {
           return;
         }
-        const options = settings[path.node.property.name];
-        // console.log(options);
-        const parent = path.parent;
-        if (
-          t.isCallExpression(parent) &&
-          parent.arguments &&
-          Array.isArray(parent.arguments)
-        ) {
-          // add variable names
-          if (options.injectVariableName) {
-            parent.arguments = injectVariableNames(parent.arguments);
+        const parentCallExp = parentMemExp.findParent(t.isCallExpression);
+        if (parentCallExp) {
+          if (
+            !looksLike(parentCallExp.node.callee, {
+              type: "MemberExpression",
+              object: { name: "console" },
+            })
+          ) {
+            return;
           }
-          // prepend filename
-          if (options.injectFileName) {
-            prependArguments(parent.arguments, file.opts.filename);
+          const settings = buildSettings(opts || {});
+          if (
+            !Object.keys(settings).includes(parentMemExp.node.property.name)
+          ) {
+            return;
+          }
+          const options = settings[parentMemExp.node.property.name];
+
+          let args = parentCallExp.node.arguments;
+
+          if (options.injectVariableName) {
+            args = injectVariableNames(args);
           }
 
-          // prepend console statement scope
           if (options.injectScope) {
-            const scope = buildScope(path);
-            prependArguments(parent.arguments, `${scope.reverse().join(".")}:`);
+            const scope = findCallScope(parentCallExp);
+            args = prependArguments(args, scope);
           }
+
+          if (options.injectFileName) {
+            let filename;
+            if (file) {
+              filename = file.opts.filename;
+            }
+            const start = path.node.loc.start;
+            const lineCol = `(${start.line}:${start.column})`;
+            args = prependArguments(args, `${filename}${lineCol}`);
+          }
+          parentCallExp.node.arguments = args;
         }
-      }
-    }
+      },
+    },
   };
 }
