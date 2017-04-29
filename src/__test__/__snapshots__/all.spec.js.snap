@@ -72,42 +72,42 @@ console.log(\\"all.js(2:0)\\", a.length);
 console.log(\\"all.js(3:0)\\", a.map());
 
 function add() {
-  console.log(\\"all.js(6:2)\\", \\"1\\");
+  console.log(\\"all.js(6:2)\\", \\"add:\\", \\"1\\");
 }
 
 var subtract = function subtract() {
-  console.log(\\"all.js(10:2)\\", \\"2\\");
+  console.log(\\"all.js(10:2)\\", \\"subtract:\\", \\"2\\");
 };
 
 var multiply = void 0;
 multiple = function multiple() {
-  console.log(\\"all.js(15:2)\\", \\"3\\");
+  console.log(\\"all.js(15:2)\\", \\"multiple:\\", \\"3\\");
 };
 
 var divide = void 0;
 divide = function divide() {
-  console.log(\\"all.js(20:2)\\", \\"4\\");
+  console.log(\\"all.js(20:2)\\", \\"divide:\\", \\"4\\");
 };
 
 var power = function pow() {
-  console.log(\\"all.js(24:2)\\", 5);
+  console.log(\\"all.js(24:2)\\", \\"power:\\", 5);
 };
 
 var obj = {
   method1: function method1() {
-    console.log(\\"all.js(29:4)\\", 6);
+    console.log(\\"all.js(29:4)\\", \\"method1:\\", 6);
   },
   method2: function method2() {
-    console.log(\\"all.js(32:4)\\", 7);
+    console.log(\\"all.js(32:4)\\", \\"method2:\\", 7);
   },
   method3: function method3() {
-    console.log(\\"all.js(35:4)\\", 8);
+    console.log(\\"all.js(35:4)\\", \\"method3:\\", 8);
   }
 };
 
 var Component = function Component() {
   var privateMethod = function privateMethod() {
-    console.log(\\"all.js(41:4)\\", 1);
+    console.log(\\"all.js(41:4)\\", \\"Component.privateMethod:\\", 1);
   };
   return function () {
     function _class2() {
@@ -115,7 +115,7 @@ var Component = function Component() {
 
       this.showList = function () {
         arr.map(function (i) {
-          console.log(\\"all.js(46:8)\\", \\"all.js(46:8)\\", \\"all.js(46:8)\\", \\"i\\", \\"i\\", \\"i\\", i);
+          console.log(\\"all.js(46:8)\\", \\"i\\", i);
         });
       };
     }
@@ -123,7 +123,7 @@ var Component = function Component() {
     (0, _createClass3.default)(_class2, [{
       key: \\"render\\",
       value: function render() {
-        console.log(\\"all.js(50:6)\\", 2);
+        console.log(\\"all.js(50:6)\\", \\"value:\\", 2);
       }
     }]);
     return _class2;

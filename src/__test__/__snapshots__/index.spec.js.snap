@@ -28,23 +28,23 @@ function logAll() {
   console.assert(1 === 1);
   console.clear();
   console.count(\\"count\\");
-  console.debug(\\"method.js(5:2)\\", \\"debug\\");
+  console.debug(\\"method.js(5:2)\\", \\"logAll:\\", \\"debug\\");
   console.dir(obj);
-  console.error(\\"method.js(7:2)\\", \\"error\\");
-  console.exception(\\"method.js(8:2)\\", \\"exception\\");
+  console.error(\\"method.js(7:2)\\", \\"logAll:\\", \\"error\\");
+  console.exception(\\"method.js(8:2)\\", \\"logAll:\\", \\"exception\\");
   console.group(\\"group\\");
   console.groupEnd(\\"group\\");
   console.groupCollapsed(\\"groupCollapsed\\");
   console.groupEnd(\\"groupCollapsed\\");
-  console.info(\\"method.js(13:2)\\", \\"info\\");
-  console.log(\\"method.js(14:2)\\", \\"log\\");
+  console.info(\\"method.js(13:2)\\", \\"logAll:\\", \\"info\\");
+  console.log(\\"method.js(14:2)\\", \\"logAll:\\", \\"log\\");
   console.profile(\\"profile\\");
   console.profileEnd(\\"profile\\");
   console.table([\\"table\\"]);
   console.time(\\"time\\");
   console.timeEnd(\\"time\\");
   console.trace(\\"trace\\");
-  console.warn(\\"method.js(21:2)\\", \\"warn\\");
+  console.warn(\\"method.js(21:2)\\", \\"logAll:\\", \\"warn\\");
 }"
 `;
 
@@ -55,17 +55,17 @@ exports[`simple.js 1`] = `
 }
 
 const subtract = (a, b) => {
-  console.log(a, b);
+  console.info(a, b);
   return a - b;
 };
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function add(a, b) {
-  console.log(\\"simple.js(2:2)\\", \\"a\\", a, \\"b\\", b);
+  console.log(\\"simple.js(2:2)\\", \\"add:\\", \\"a\\", a, \\"b\\", b);
   return a + b;
 }
 
 const subtract = (a, b) => {
-  console.log(\\"simple.js(7:2)\\", \\"a\\", a, \\"b\\", b);
+  console.info(\\"simple.js(7:2)\\", \\"subtract:\\", \\"a\\", a, \\"b\\", b);
   return a - b;
 };"
 `;
