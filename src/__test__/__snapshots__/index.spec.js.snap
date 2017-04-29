@@ -1,88 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`bugs.js 1`] = `
-"function argsIsNotArray() {
-  console.warn;
+exports[`all.js 1`] = `
+"console.log(a);
+console.log(a.length);
+console.log(a.map());
+
+function add() {
+  console.log(\\"1\\");
 }
 
-function consoleAssigned() {
-  const c = console;
-  // see [#4](https://github.com/kwelch/babel-plugin-captains-log/issues/4)
-  c.warn(\\"not prepended because we don't catch assignments\\");
-}
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function argsIsNotArray() {
-  console.warn;
-}
+const subtract = () => {
+  console.log(\\"2\\");
+};
 
-function consoleAssigned() {
-  const c = console;
-  // see [#4](https://github.com/kwelch/babel-plugin-captains-log/issues/4)
-  c.warn(\\"not prepended because we don't catch assignments\\");
-}"
-`;
+let multiply;
+multiple = () => {
+  console.log(\\"3\\");
+};
 
-exports[`class.js 1`] = `
-"class WrapClass {
-  constructor() {
-    console.log(\\"ctr\\");
-  }
+let divide;
+divide = function() {
+  console.log(\\"4\\");
+};
 
-  render() {
-    console.log(\\"Component\\");
-    items.map(i => {
-      console.log(i);
-      return i.name;
-    });
-    return null;
-  }
+const power = function pow() {
+  console.log(5);
+};
 
-  // todo: make it work with stage-2
-  // namedArrow = () => {
-  //   console.debug(\\"test\\");
-  // };
-}
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-class WrapClass {
-  constructor() {
-    console.log(\\"WrapClass.constructor:\\", \\"ctr\\");
-  }
+const obj = {
+  method1: function() {
+    console.log(6);
+  },
+  method2: () => {
+    console.log(7);
+  },
+  method3() {
+    console.log(8);
+  },
+};
 
-  render() {
-    console.log(\\"WrapClass.render:\\", \\"Component\\");
-    items.map(i => {
-      console.log(\\"WrapClass.render.[items.map]:\\", \\"i\\", i);
-      return i.name;
-    });
-    return null;
-  }
-
-  // todo: make it work with stage-2
-  // namedArrow = () => {
-  //   console.debug(\\"test\\");
-  // };
-}"
-`;
-
-exports[`factory.js 1`] = `
-"const factory = () => class WrapClass {
-  constructor() {
-    console.log(\\"ctr\\");
-  }
-  // todo: make it work with stage-2
-  // namedArrow = () => {
-  //   console.debug(\\"test\\");
-  // };
+const Component = () => {
+  const privateMethod = () => {
+    console.log(1);
+  };
+  return class {
+    showList() {
+      arr.map(i => {
+        console.log(i);
+      });
+    }
+    render() {
+      console.log(2);
+    }
+  };
 };
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const factory = () => class WrapClass {
-  constructor() {
-    console.log(\\"factory.WrapClass.constructor:\\", \\"ctr\\");
+console.log(\\"all.js(1:0)\\", \\"a\\", a);
+console.log(\\"all.js(2:0)\\", a.length);
+console.log(\\"all.js(3:0)\\", a.map());
+
+function add() {
+  console.log(\\"all.js(6:2)\\", \\"add:\\", \\"1\\");
+}
+
+const subtract = () => {
+  console.log(\\"all.js(10:2)\\", \\"subtract:\\", \\"2\\");
+};
+
+let multiply;
+multiple = () => {
+  console.log(\\"all.js(15:2)\\", \\"multiple:\\", \\"3\\");
+};
+
+let divide;
+divide = function () {
+  console.log(\\"all.js(20:2)\\", \\"divide:\\", \\"4\\");
+};
+
+const power = function pow() {
+  console.log(\\"all.js(24:2)\\", \\"power:\\", 5);
+};
+
+const obj = {
+  method1: function () {
+    console.log(\\"all.js(29:4)\\", \\"method1:\\", 6);
+  },
+  method2: () => {
+    console.log(\\"all.js(32:4)\\", \\"method2:\\", 7);
+  },
+  method3() {
+    console.log(\\"all.js(35:4)\\", \\"method3:\\", 8);
   }
-  // todo: make it work with stage-2
-  // namedArrow = () => {
-  //   console.debug(\\"test\\");
-  // };
+};
+
+const Component = () => {
+  const privateMethod = () => {
+    console.log(\\"all.js(41:4)\\", \\"Component.privateMethod:\\", 1);
+  };
+  return class {
+    showList() {
+      arr.map(i => {
+        console.log(\\"all.js(46:8)\\", \\"i\\", i);
+      });
+    }
+    render() {
+      console.log(\\"all.js(50:6)\\", \\"Component.render:\\", 2);
+    }
+  };
 };"
 `;
 
@@ -114,61 +138,23 @@ function logAll() {
   console.assert(1 === 1);
   console.clear();
   console.count(\\"count\\");
-  console.debug(\\"logAll:\\", \\"debug\\");
+  console.debug(\\"method.js(5:2)\\", \\"logAll:\\", \\"debug\\");
   console.dir(obj);
-  console.error(\\"logAll:\\", \\"error\\");
-  console.exception(\\"logAll:\\", \\"exception\\");
+  console.error(\\"method.js(7:2)\\", \\"logAll:\\", \\"error\\");
+  console.exception(\\"method.js(8:2)\\", \\"logAll:\\", \\"exception\\");
   console.group(\\"group\\");
   console.groupEnd(\\"group\\");
   console.groupCollapsed(\\"groupCollapsed\\");
   console.groupEnd(\\"groupCollapsed\\");
-  console.info(\\"logAll:\\", \\"info\\");
-  console.log(\\"logAll:\\", \\"log\\");
+  console.info(\\"method.js(13:2)\\", \\"logAll:\\", \\"info\\");
+  console.log(\\"method.js(14:2)\\", \\"logAll:\\", \\"log\\");
   console.profile(\\"profile\\");
   console.profileEnd(\\"profile\\");
   console.table([\\"table\\"]);
   console.time(\\"time\\");
   console.timeEnd(\\"time\\");
   console.trace(\\"trace\\");
-  console.warn(\\"logAll:\\", \\"warn\\");
-}"
-`;
-
-exports[`nesting.js 1`] = `
-"function topLevel() {
-  console.log(\\"a\\");
-  const level1 = () => {
-    console.log(\\"b\\");
-
-    const level2 = () => {
-      console.log(\\"c\\");
-    };
-    const level2b = () => {
-      console.log(\\"d\\");
-
-      const level3 = () => {
-        console.log(\\"e\\");
-      };
-    };
-  };
-}
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-function topLevel() {
-  console.log(\\"topLevel:\\", \\"a\\");
-  const level1 = () => {
-    console.log(\\"topLevel.level1:\\", \\"b\\");
-
-    const level2 = () => {
-      console.log(\\"topLevel.level1.level2:\\", \\"c\\");
-    };
-    const level2b = () => {
-      console.log(\\"topLevel.level1.level2b:\\", \\"d\\");
-
-      const level3 = () => {
-        console.log(\\"topLevel.level1.level2b.level3:\\", \\"e\\");
-      };
-    };
-  };
+  console.warn(\\"method.js(21:2)\\", \\"logAll:\\", \\"warn\\");
 }"
 `;
 
@@ -179,17 +165,17 @@ exports[`simple.js 1`] = `
 }
 
 const subtract = (a, b) => {
-  console.log(a, b);
+  console.info(a, b);
   return a - b;
 };
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 function add(a, b) {
-  console.log(\\"add:\\", \\"a\\", a, \\"b\\", b);
+  console.log(\\"simple.js(2:2)\\", \\"add:\\", \\"a\\", a, \\"b\\", b);
   return a + b;
 }
 
 const subtract = (a, b) => {
-  console.log(\\"subtract:\\", \\"a\\", a, \\"b\\", b);
+  console.info(\\"simple.js(7:2)\\", \\"subtract:\\", \\"a\\", a, \\"b\\", b);
   return a - b;
 };"
 `;
