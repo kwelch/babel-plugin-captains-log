@@ -26,13 +26,13 @@ Default bahavior:
 ```diff
 function add(a, b) {
 -  console.log(a, b);
-+  console.log("add:", "a", a, "b", b);
++  console.log("simple.js(2:2)", "add:", "a", a, "b", b);
   return a + b;
 }
 
 const subtract = (a, b) => {
 -  console.log(a, b);
-+  console.log("subtract:", "a", a, "b", b);
++  console.info("simple.js(7:2)", "subtract:", "a", a, "b", b);
   return a - b;
 };
 ```
@@ -105,7 +105,7 @@ Flags are values set for all methods and are used to turn that feature on or off
 ```
 
 #### Inject File Name
-**Default**: `false`
+**Default**: `true`
 
 ```
 {
@@ -120,7 +120,6 @@ Flags are values set for all methods and are used to turn that feature on or off
 ## Roadmap
 
 - [ ] Add ability to timestamp console statements
-- [ ] Add ability to auto add console statements to methods
 
 ## License
 

@@ -7,9 +7,6 @@ const dirname = path.resolve(__dirname, "./__fixtures__");
 
 export default function run_spec(name, options) {
   fs.readdirSync(dirname).forEach(filename => {
-    if (filename === "all.js") {
-      return;
-    }
     testFile(dirname, filename, name, options);
   });
 }
@@ -26,12 +23,10 @@ export function read(filename) {
   return fs.readFileSync(filename, "utf8");
 }
 
-export function transform(filename, source, options = {}, useBabelRC = false) {
+export function transform(filename, source, options = {}) {
   const { code } = babel.transform(source, {
     filename: filename,
-    babelrc: useBabelRC,
-    // usage with stage-2 doesn't work, scope is set to constructor instead of arrow functions
-    // presets: ["stage-2"],
+    babelrc: false,
     plugins: [[PLUGIN, options]],
   });
   return code;

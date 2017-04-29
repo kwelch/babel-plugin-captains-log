@@ -41,11 +41,11 @@ const Component = () => {
     console.log(1);
   };
   return class {
-    showList = () => {
+    showList() {
       arr.map(i => {
         console.log(i);
       });
-    };
+    }
     render() {
       console.log(2);
     }
