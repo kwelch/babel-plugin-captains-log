@@ -40,7 +40,7 @@ const Component = () => {
   const privateMethod = () => {
     console.log(1);
   };
-  return class {
+  return class HighOrderComponent {
     showList() {
       arr.map(i => {
         console.log(i);

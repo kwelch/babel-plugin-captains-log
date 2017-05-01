@@ -6,6 +6,21 @@ const defaultSettings = {
 
 const defaultMethods = ["debug", "error", "exception", "info", "log", "warn"];
 
+const idNameSelector = path => path.node.id.name;
+const keyNameSelector = path => path.node.key.name;
+
+const scopeHandlers = {
+  FunctionDeclaration: idNameSelector,
+  VariableDeclarator: idNameSelector,
+  ObjectProperty: keyNameSelector,
+  ObjectMethod: keyNameSelector,
+  ClassMethod: keyNameSelector,
+  ClassExpression: idNameSelector,
+  ClassDeclaration: idNameSelector,
+
+  AssignmentExpression: path => path.node.left.name,
+};
+
 export default function({ types: t }) {
   const name = "babel-plugin-captains-log";
   const callExpressions = new Set();
@@ -92,40 +107,14 @@ export default function({ types: t }) {
   }
 
   function findCallScope(path, scope = []) {
-    const parentFunc = path.findParent(t.isFunction);
+    const parentFunc = path.findParent(path =>
+      Object.keys(scopeHandlers).includes(path.type)
+    );
     if (parentFunc) {
-      if (t.isFunctionDeclaration(parentFunc)) {
-        return findCallScope(parentFunc, [parentFunc.node.id.name, ...scope]);
-      }
-      if (
-        t.isFunctionExpression(parentFunc) ||
-        t.isArrowFunctionExpression(parentFunc)
-      ) {
-        if (looksLike(parentFunc.parent, { type: "VariableDeclarator" })) {
-          return findCallScope(parentFunc.parentPath, [
-            parentFunc.parent.id.name,
-            ...scope,
-          ]);
-        }
-        if (looksLike(parentFunc.parent, { type: "AssignmentExpression" })) {
-          return findCallScope(parentFunc.parentPath, [
-            parentFunc.parent.left.name,
-            ...scope,
-          ]);
-        }
-        if (looksLike(parentFunc.parent, { type: "ObjectProperty" })) {
-          return findCallScope(parentFunc.parentPath, [
-            parentFunc.parent.key.name,
-            ...scope,
-          ]);
-        }
-      }
-      if (t.isObjectMethod(parentFunc) || parentFunc.isClassMethod()) {
-        return findCallScope(parentFunc.parentPath, [
-          parentFunc.node.key.name,
-          ...scope,
-        ]);
-      }
+      return findCallScope(parentFunc, [
+        scopeHandlers[parentFunc.type](parentFunc),
+        ...scope,
+      ]);
     }
     return scope.length ? `${scope.join(".")}:` : "";
   }
