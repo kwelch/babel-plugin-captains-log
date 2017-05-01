@@ -51,3 +51,9 @@ const Component = () => {
     }
   };
 };
+
+class ToDoComponent {
+  render() {
+    console.log(this.props);
+  }
+}
