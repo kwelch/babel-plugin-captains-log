@@ -11,6 +11,7 @@ node_js:
 before_script:
   - npm prune
 script:
+  - yarn run lint
   - yarn run build
   - yarn run test -- --coverage
 after_success:
