@@ -54,6 +54,12 @@ const Component = () => {
     }
   };
 };
+
+class ToDoComponent {
+  render() {
+    console.log(this.props);
+  }
+}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 console.log(\\"all.js(1:0)\\", \\"a\\", a);
 console.log(\\"all.js(2:0)\\", a.length);
@@ -107,7 +113,13 @@ const Component = () => {
       console.log(\\"all.js(50:6)\\", \\"Component.HighOrderComponent.render:\\", 2);
     }
   };
-};"
+};
+
+class ToDoComponent {
+  render() {
+    console.log(\\"all.js(57:4)\\", \\"ToDoComponent.render:\\", this.props);
+  }
+}"
 `;
 
 exports[`method.js 1`] = `
