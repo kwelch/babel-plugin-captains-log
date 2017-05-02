@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`aliased.js 1`] = `
+"let logger = console;
+logger.warn(a);
+logger = customLogger();
+logger.log(b);
+
+const { warn, log } = console;
+warn(a);
+log(b);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let logger = console;
+logger.warn(a);
+logger = customLogger();
+logger.log(\\"aliased.js(4:0)\\", \\"b\\", b);
+
+const { warn, log } = console;
+warn(a);
+log(b);"
+`;
+
 exports[`all.js 1`] = `
 "console.log(a);
 console.log(a.length);

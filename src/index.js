@@ -37,6 +37,16 @@ export default function({ types: t }) {
         if (isTrackingConsoleCallStatement(path, parentCallExp, settings)) {
           callExpressions.add(parentCallExp);
         }
+        if (path.parentPath.isVariableDeclarator()) {
+          const varDeclar = path.parentPath;
+          if (looksLike(varDeclar.node.id, { type: "Identifier" })) {
+            const aliasedRefs = findTrackingCallExpressions(
+              varDeclar.scope.getBinding(varDeclar.node.id.name).referencePaths,
+              settings
+            );
+            aliasedRefs.forEach(ref => callExpressions.add(ref));
+          }
+        }
       },
       Program: {
         exit(_, { file, opts }) {
@@ -75,6 +85,16 @@ export default function({ types: t }) {
 
   function getConsoleCallMethodName(callExpression) {
     return callExpression.get("callee.property").node.name;
+  }
+
+  function findTrackingCallExpressions(paths = [], settings) {
+    return paths.reduce((acc, curr) => {
+      const parentCallExp = curr.findParent(t.isCallExpression);
+      if (isTrackingConsoleCallStatement(curr, parentCallExp, settings)) {
+        return [...acc, parentCallExp];
+      }
+      return acc;
+    }, []);
   }
 
   function isTrackingConsoleCallStatement(path, parentCallExp, settings) {
