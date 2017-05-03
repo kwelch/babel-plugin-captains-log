@@ -1,5 +1,7 @@
 # Captain's Log (☠️)
 
+[![Join the chat at https://gitter.im/babel-plugin-captains-log/Lobby](https://badges.gitter.im/babel-plugin-captains-log/Lobby.svg)](https://gitter.im/babel-plugin-captains-log/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![version](https://img.shields.io/npm/v/babel-plugin-captains-log.svg?style=flat-square)](http://npm.im/babel-plugin-captains-log)
 [![downloads](https://img.shields.io/npm/dm/babel-plugin-captains-log.svg?style=flat-square)](http://npm-stat.com/charts.html?package=babel-plugin-captains-log)
 [![Travis Build Status](https://img.shields.io/travis/kwelch/babel-plugin-captains-log.svg?style=flat-square)](https://travis-ci.org/kwelch/babel-plugin-captains-log)
