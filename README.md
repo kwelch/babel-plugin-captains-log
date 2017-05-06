@@ -1,5 +1,6 @@
 # Captain's Log (☠️)
 
+
 [![version](https://img.shields.io/npm/v/babel-plugin-captains-log.svg?style=flat-square)](http://npm.im/babel-plugin-captains-log)
 [![downloads](https://img.shields.io/npm/dm/babel-plugin-captains-log.svg?style=flat-square)](http://npm-stat.com/charts.html?package=babel-plugin-captains-log)
 [![Travis Build Status](https://img.shields.io/travis/kwelch/babel-plugin-captains-log.svg?style=flat-square)](https://travis-ci.org/kwelch/babel-plugin-captains-log)
@@ -13,6 +14,7 @@
 [![Watch on GitHub](https://img.shields.io/github/watchers/kwelch/babel-plugin-captains-log.svg?style=social)](https://github.com/kwelch/babel-plugin-captains-log/watchers)
 [![Star on GitHub](https://img.shields.io/github/stars/kwelch/babel-plugin-captains-log.svg?style=social)](https://github.com/kwelch/babel-plugin-captains-log/stargazers)
 [![Tweet](https://img.shields.io/twitter/url/https/github.com/kwelch/babel-plugin-captains-log.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20babel-plugin-captains-log!%20https://github.com/kwelch/babel-plugin-captains-log%20%F0%9F%91%8D)
+[![Join the chat at https://gitter.im/babel-plugin-captains-log/Lobby](https://badges.gitter.im/babel-plugin-captains-log/Lobby.svg?style=flat-square)](https://gitter.im/babel-plugin-captains-log/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Usage
 
