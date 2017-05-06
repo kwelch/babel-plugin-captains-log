@@ -28,7 +28,10 @@ export default function({ types: t }) {
   return {
     name,
     visitor: {
-      Identifier(path, { opts }) {
+      Identifier(path, { opts = {}, file }) {
+        if (matchesIgnorePattern(opts.ignorePatterns, file)) {
+          return;
+        }
         if (!looksLike(path.node, { name: "console" })) {
           return;
         }
@@ -72,6 +75,9 @@ export default function({ types: t }) {
       },
     },
   };
+  function matchesIgnorePattern(ignorePatterns = ["node_modules"], file) {
+    return ignorePatterns.some(pattern => file.opts.filename.includes(pattern));
+  }
 
   function getConsoleCallMethodName(callExpression) {
     return callExpression.get("callee.property").node.name;
@@ -95,7 +101,7 @@ export default function({ types: t }) {
   }
 
   function buildSettings(opts) {
-    const { methods, ...flags } = opts;
+    const { methods, ignorePatterns, ...flags } = opts;
     // output spreads the flags over each method
     // in the future this could be expanded to allow method level config
     return (methods || defaultMethods).reduce((acc, curr) => {

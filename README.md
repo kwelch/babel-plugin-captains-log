@@ -68,7 +68,22 @@ This option provides control over which console statments are adjusted. Methods 
 {
   plugins: [
     ["captains-log", {
-      methods: ['debug', 'info']
+      "methods": ['debug', 'info']
+    }]
+  ]
+}
+```
+
+### Ignore Patterns
+This option provides control over which files are adjusted. Ignore Patterns is set within your `.babelrc` as an array of strings.
+
+**Default**: `["node_modules"]`
+
+```
+{
+  plugins: [
+    ["captains-log", {
+      "ignorePatterns": ["node_modules", ".spec.js"]
     }]
   ]
 }
@@ -85,7 +100,7 @@ Flags are values set for all methods and are used to turn that feature on or off
 {
   plugins: [
     ["captains-log", {
-      injectVariableName: true
+      "injectVariableName": true
     }]
   ]
 }
@@ -98,7 +113,7 @@ Flags are values set for all methods and are used to turn that feature on or off
 {
   plugins: [
     ["captains-log", {
-      injectScope: true
+      "injectScope": true
     }]
   ]
 }
@@ -111,7 +126,7 @@ Flags are values set for all methods and are used to turn that feature on or off
 {
   plugins: [
     ["captains-log", {
-      injectFileName: true
+      "injectFileName": true
     }]
   ]
 }

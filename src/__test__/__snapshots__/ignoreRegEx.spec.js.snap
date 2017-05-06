@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`all.js 1`] = `
+"console.log(a);
+console.log(a.length);
+console.log(a.map());
+
+function add() {
+  console.log(\\"1\\");
+}
+
+const subtract = () => {
+  console.log(\\"2\\");
+};
+
+let multiply;
+multiple = () => {
+  console.log(\\"3\\");
+};
+
+let divide;
+divide = function() {
+  console.log(\\"4\\");
+};
+
+const power = function pow() {
+  console.log(5);
+};
+
+const obj = {
+  method1: function() {
+    console.log(6);
+  },
+  method2: () => {
+    console.log(7);
+  },
+  method3() {
+    console.log(8);
+  },
+};
+
+const Component = () => {
+  const privateMethod = () => {
+    console.log(1);
+  };
+  return class HighOrderComponent {
+    showList() {
+      arr.map(i => {
+        console.log(i);
+      });
+    }
+    render() {
+      console.log(2);
+    }
+  };
+};
+
+class ToDoComponent {
+  render() {
+    console.log(this.props);
+  }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+console.log(a);
+console.log(a.length);
+console.log(a.map());
+
+function add() {
+  console.log(\\"1\\");
+}
+
+const subtract = () => {
+  console.log(\\"2\\");
+};
+
+let multiply;
+multiple = () => {
+  console.log(\\"3\\");
+};
+
+let divide;
+divide = function () {
+  console.log(\\"4\\");
+};
+
+const power = function pow() {
+  console.log(5);
+};
+
+const obj = {
+  method1: function () {
+    console.log(6);
+  },
+  method2: () => {
+    console.log(7);
+  },
+  method3() {
+    console.log(8);
+  }
+};
+
+const Component = () => {
+  const privateMethod = () => {
+    console.log(1);
+  };
+  return class HighOrderComponent {
+    showList() {
+      arr.map(i => {
+        console.log(i);
+      });
+    }
+    render() {
+      console.log(2);
+    }
+  };
+};
+
+class ToDoComponent {
+  render() {
+    console.log(this.props);
+  }
+}"
+`;
+
+exports[`method.js 1`] = `
+"function logAll() {
+  console.assert(1 === 1);
+  console.clear();
+  console.count(\\"count\\");
+  console.debug(\\"debug\\");
+  console.dir(obj);
+  console.error(\\"error\\");
+  console.exception(\\"exception\\");
+  console.group(\\"group\\");
+  console.groupEnd(\\"group\\");
+  console.groupCollapsed(\\"groupCollapsed\\");
+  console.groupEnd(\\"groupCollapsed\\");
+  console.info(\\"info\\");
+  console.log(\\"log\\");
+  console.profile(\\"profile\\");
+  console.profileEnd(\\"profile\\");
+  console.table([\\"table\\"]);
+  console.time(\\"time\\");
+  console.timeEnd(\\"time\\");
+  console.trace(\\"trace\\");
+  console.warn(\\"warn\\");
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function logAll() {
+  console.assert(1 === 1);
+  console.clear();
+  console.count(\\"count\\");
+  console.debug(\\"method.js(5:2)\\", \\"logAll:\\", \\"debug\\");
+  console.dir(obj);
+  console.error(\\"method.js(7:2)\\", \\"logAll:\\", \\"error\\");
+  console.exception(\\"method.js(8:2)\\", \\"logAll:\\", \\"exception\\");
+  console.group(\\"group\\");
+  console.groupEnd(\\"group\\");
+  console.groupCollapsed(\\"groupCollapsed\\");
+  console.groupEnd(\\"groupCollapsed\\");
+  console.info(\\"method.js(13:2)\\", \\"logAll:\\", \\"info\\");
+  console.log(\\"method.js(14:2)\\", \\"logAll:\\", \\"log\\");
+  console.profile(\\"profile\\");
+  console.profileEnd(\\"profile\\");
+  console.table([\\"table\\"]);
+  console.time(\\"time\\");
+  console.timeEnd(\\"time\\");
+  console.trace(\\"trace\\");
+  console.warn(\\"method.js(21:2)\\", \\"logAll:\\", \\"warn\\");
+}"
+`;
+
+exports[`simple.js 1`] = `
+"function add(a, b) {
+  console.log(a, b);
+  return a + b;
+}
+
+const subtract = (a, b) => {
+  console.info(a, b);
+  return a - b;
+};
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function add(a, b) {
+  console.log(\\"simple.js(2:2)\\", \\"add:\\", \\"a\\", a, \\"b\\", b);
+  return a + b;
+}
+
+const subtract = (a, b) => {
+  console.info(\\"simple.js(7:2)\\", \\"subtract:\\", \\"a\\", a, \\"b\\", b);
+  return a - b;
+};"
+`;
