@@ -101,6 +101,8 @@ export default function({ types: t }) {
   }
 
   function buildSettings(opts) {
+    // remove ignore patterns from settings since it has been consumed already
+    // eslint-disable-next-line no-unused-vars
     const { methods, ignorePatterns, ...flags } = opts;
     // output spreads the flags over each method
     // in the future this could be expanded to allow method level config
