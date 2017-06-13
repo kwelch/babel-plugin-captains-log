@@ -4,7 +4,7 @@ const defaultSettings = {
   injectFileName: true,
 };
 
-const defaultMethods = ["debug", "error", "exception", "info", "log", "warn"];
+const defaultMethods = ['debug', 'error', 'exception', 'info', 'log', 'warn'];
 
 const idNameSelector = path => path.node.id.name;
 const keyNameSelector = path => path.node.key.name;
@@ -22,7 +22,7 @@ const scopeHandlers = {
 };
 
 export default function({ types: t }) {
-  const name = "babel-plugin-captains-log";
+  const name = 'babel-plugin-captains-log';
   const callExpressions = new Set();
   const evaluatedExpressions = new Set();
   return {
@@ -32,7 +32,7 @@ export default function({ types: t }) {
         if (matchesIgnorePattern(opts.ignorePatterns, file)) {
           return;
         }
-        if (!looksLike(path.node, { name: "console" })) {
+        if (!looksLike(path.node, { name: 'console' })) {
           return;
         }
         const settings = buildSettings(opts || {});
@@ -75,12 +75,12 @@ export default function({ types: t }) {
       },
     },
   };
-  function matchesIgnorePattern(ignorePatterns = ["node_modules"], file) {
+  function matchesIgnorePattern(ignorePatterns = ['node_modules'], file) {
     return ignorePatterns.some(pattern => file.opts.filename.includes(pattern));
   }
 
   function getConsoleCallMethodName(callExpression) {
-    return callExpression.get("callee.property").node.name;
+    return callExpression.get('callee.property').node.name;
   }
 
   function isTrackingConsoleCallStatement(path, parentCallExp, settings) {
@@ -124,7 +124,7 @@ export default function({ types: t }) {
         ...scope,
       ]);
     }
-    return scope.length ? `${scope.join(".")}:` : "";
+    return scope.length ? `${scope.join('.')}:` : '';
   }
 
   function prependArguments(args = [], value) {
@@ -142,7 +142,7 @@ function looksLike(a, b) {
     Object.keys(b).every(bKey => {
       const bVal = b[bKey];
       const aVal = a[bKey];
-      if (typeof bVal === "function") {
+      if (typeof bVal === 'function') {
         return bVal(aVal);
       }
       return isPrimitive(bVal) ? bVal === aVal : looksLike(aVal, bVal);

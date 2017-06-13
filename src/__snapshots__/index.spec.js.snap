@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`2. babel-plugin-captains-log 1`] = `
+"
+console.log('sup dawg')
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+console.log('unknown(1:0)', 'sup dawg');
+"
+`;
+
+exports[`3. babel-plugin-captains-log 1`] = `
+"
+function add(a, b) {
+  console.log(a, b);
+  return a + b;
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+function add(a, b) {
+  console.log(\\"unknown(2:2)\\", \\"add:\\", \\"a\\", a, \\"b\\", b);
+  return a + b;
+}
+"
+`;
+
+exports[`4. babel-plugin-captains-log 1`] = `
+"
+const subtract = (a, b) => {
+  console.info(a, b);
+  return a - b;
+};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const subtract = (a, b) => {
+  console.info(\\"unknown(2:2)\\", \\"subtract:\\", \\"a\\", a, \\"b\\", b);
+  return a - b;
+};
+"
+`;
+
+exports[`5. babel-plugin-captains-log 1`] = `
+"
+let multiply;
+multiple = () => {
+  console.log(\\"3\\");
+};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+let multiply;
+multiple = () => {
+  console.log(\\"unknown(3:2)\\", \\"multiple:\\", \\"3\\");
+};
+"
+`;
+
+exports[`6. babel-plugin-captains-log 1`] = `
+"
+let divide;
+divide = function() {
+  console.log(\\"4\\");
+};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+let divide;
+divide = function () {
+  console.log(\\"unknown(3:2)\\", \\"divide:\\", \\"4\\");
+};
+"
+`;
+
+exports[`7. babel-plugin-captains-log 1`] = `
+"
+const power = function pow() {
+  console.log(5);
+};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const power = function pow() {
+  console.log(\\"unknown(2:2)\\", \\"power:\\", 5);
+};
+"
+`;
+
+exports[`8. babel-plugin-captains-log 1`] = `
+"
+const obj = {
+  method1: function() {
+    console.log(6);
+  },
+  method2: () => {
+    console.log(7);
+  },
+  method3() {
+    console.log(8);
+  },
+};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const obj = {
+  method1: function () {
+    console.log(\\"unknown(3:4)\\", \\"obj.method1:\\", 6);
+  },
+  method2: () => {
+    console.log(\\"unknown(6:4)\\", \\"obj.method2:\\", 7);
+  },
+  method3() {
+    console.log(\\"unknown(9:4)\\", \\"obj.method3:\\", 8);
+  }
+};
+"
+`;
+
+exports[`9. babel-plugin-captains-log 1`] = `
+"
+const Component = () => {
+  const privateMethod = () => {
+    console.log(1);
+  };
+  return class HighOrderComponent {
+    showList() {
+      arr.map(i => {
+        console.log(i);
+      });
+    }
+    render() {
+      console.log(2);
+    }
+  };
+};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const Component = () => {
+  const privateMethod = () => {
+    console.log(\\"unknown(3:4)\\", \\"Component.privateMethod:\\", 1);
+  };
+  return class HighOrderComponent {
+    showList() {
+      arr.map(i => {
+        console.log(\\"unknown(8:8)\\", \\"Component.HighOrderComponent.showList:\\", \\"i\\", i);
+      });
+    }
+    render() {
+      console.log(\\"unknown(12:6)\\", \\"Component.HighOrderComponent.render:\\", 2);
+    }
+  };
+};
+"
+`;
+
+exports[`10. babel-plugin-captains-log 1`] = `
+"
+class ToDoComponent {
+  render() {
+    console.log(this.props);
+  }
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+class ToDoComponent {
+  render() {
+    console.log(\\"unknown(3:4)\\", \\"ToDoComponent.render:\\", this.props);
+  }
+}
+"
+`;
+
+exports[`11. Method options 1`] = `
+"
+function logAll() {
+  console.assert(1 === 1);
+  console.clear();
+  console.count(\\"count\\");
+  console.debug(\\"debug\\");
+  console.dir(obj);
+  console.error(\\"error\\");
+  console.exception(\\"exception\\");
+  console.group(\\"group\\");
+  console.groupEnd(\\"group\\");
+  console.groupCollapsed(\\"groupCollapsed\\");
+  console.groupEnd(\\"groupCollapsed\\");
+  console.info(\\"info\\");
+  console.log(\\"log\\");
+  console.profile(\\"profile\\");
+  console.profileEnd(\\"profile\\");
+  console.table([\\"table\\"]);
+  console.time(\\"time\\");
+  console.timeEnd(\\"time\\");
+  console.trace(\\"trace\\");
+  console.warn(\\"warn\\");
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+function logAll() {
+  console.assert(1 === 1);
+  console.clear();
+  console.count(\\"count\\");
+  console.debug(\\"/Users/welchk/_git/oss/babel-plugin-captains-log/src/__fixtures__/method-check/code.js(5:2)\\", \\"logAll:\\", \\"debug\\");
+  console.dir(obj);
+  console.error(\\"error\\");
+  console.exception(\\"exception\\");
+  console.group(\\"group\\");
+  console.groupEnd(\\"group\\");
+  console.groupCollapsed(\\"groupCollapsed\\");
+  console.groupEnd(\\"groupCollapsed\\");
+  console.info(\\"/Users/welchk/_git/oss/babel-plugin-captains-log/src/__fixtures__/method-check/code.js(13:2)\\", \\"logAll:\\", \\"info\\");
+  console.log(\\"/Users/welchk/_git/oss/babel-plugin-captains-log/src/__fixtures__/method-check/code.js(14:2)\\", \\"logAll:\\", \\"log\\");
+  console.profile(\\"profile\\");
+  console.profileEnd(\\"profile\\");
+  console.table([\\"table\\"]);
+  console.time(\\"time\\");
+  console.timeEnd(\\"time\\");
+  console.trace(\\"trace\\");
+  console.warn(\\"warn\\");
+}
+"
+`;
