@@ -7,34 +7,32 @@
 [![codecov](https://codecov.io/gh/kwelch/babel-plugin-captains-log/branch/master/graph/badge.svg?style=flat-square)](https://codecov.io/gh/kwelch/babel-plugin-captains-log)
 
 [![MIT License](https://img.shields.io/npm/l/kwelch.svg?style=flat-square)](http://opensource.org/licenses/MIT)
-[![Roadmap](https://img.shields.io/badge/%F0%9F%93%94-roadmap-CD9523.svg?style=flat-square)]([roadmap])
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 
 [![Watch on GitHub](https://img.shields.io/github/watchers/kwelch/babel-plugin-captains-log.svg?style=social)](https://github.com/kwelch/babel-plugin-captains-log/watchers)
 [![Star on GitHub](https://img.shields.io/github/stars/kwelch/babel-plugin-captains-log.svg?style=social)](https://github.com/kwelch/babel-plugin-captains-log/stargazers)
 [![Tweet](https://img.shields.io/twitter/url/https/github.com/kwelch/babel-plugin-captains-log.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20babel-plugin-captains-log!%20https://github.com/kwelch/babel-plugin-captains-log%20%F0%9F%91%8D)
-[![Join the chat at https://gitter.im/babel-plugin-captains-log/Lobby](https://badges.gitter.im/babel-plugin-captains-log/Lobby.svg?style=flat-square)](https://gitter.im/babel-plugin-captains-log/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Usage
 
 `babel-plugin-captains-log` injects helpful details into console statements.
 
 Default bahavior:
-- Prepend console statement scope
+- prepend console statement file & location
 - add inject variable name into console statements
 
 **Transforms**
 ```diff
 function add(a, b) {
 -  console.log(a, b);
-+  console.log("simple.js(2:2)", "add:", "a", a, "b", b);
++  console.log("simple.js(2:2)", "a", a, "b", b);
   return a + b;
 }
 
 const subtract = (a, b) => {
 -  console.log(a, b);
-+  console.info("simple.js(7:2)", "subtract:", "a", a, "b", b);
++  console.info("simple.js(7:2)", "a", a, "b", b);
   return a - b;
 };
 ```
@@ -108,19 +106,6 @@ Flags are values set for all methods and are used to turn that feature on or off
 }
 ```
 
-#### Inject Scope
-**Default**: `true`
-
-```
-{
-  plugins: [
-    ["captains-log", {
-      "injectScope": true
-    }]
-  ]
-}
-```
-
 #### Inject File Name
 **Default**: `true`
 
@@ -134,9 +119,20 @@ Flags are values set for all methods and are used to turn that feature on or off
 }
 ```
 
-## Roadmap
+#### Inject Scope _(Experimental)_
+_This has a few issues with other plugins particularly react-hot-loader, as it changes method names. Also, it was written for recursion which adds too much noise to the console statement which is against this libraries purpose_
 
-- [ ] Add ability to timestamp console statements
+**Default**: `false`
+
+```
+{
+  plugins: [
+    ["captains-log", {
+      "injectScope": true
+    }]
+  ]
+}
+```
 
 ## License
 
@@ -147,8 +143,8 @@ MIT
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars0.githubusercontent.com/u/1295580?v=3" width="100px;"/><br /><sub>Kyle Welch</sub>](http://www.krwelch.com)<br />[💻](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Code") [📖](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Documentation") [⚠️](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Tests") |
-| :---: |
+| [<img src="https://avatars0.githubusercontent.com/u/1295580?v=3" width="100px;"/><br /><sub>Kyle Welch</sub>](http://www.krwelch.com)<br />[💻](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Code") [📖](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Documentation") [⚠️](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Tests") | [<img src="https://avatars1.githubusercontent.com/u/9456433?v=4" width="100px;"/><br /><sub>Maksim</sub>](https://github.com/mqklin)<br />[🐛](https://github.com/kwelch/babel-plugin-captains-log/issues?q=author%3Amqklin "Bug reports") |
+| :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!

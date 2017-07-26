@@ -4,7 +4,7 @@ exports[`buildOptions should allow methods to be changed 1`] = `
 Object {
   "debug": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
 }
@@ -14,32 +14,32 @@ exports[`buildOptions should overwrite defaults 1`] = `
 Object {
   "debug": Object {
     "injectFileName": false,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "error": Object {
     "injectFileName": false,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "exception": Object {
     "injectFileName": false,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "info": Object {
     "injectFileName": false,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "log": Object {
     "injectFileName": false,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "warn": Object {
     "injectFileName": false,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
 }
@@ -49,32 +49,32 @@ exports[`buildOptions should return defaults for invalid args 1`] = `
 Object {
   "debug": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "error": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "exception": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "info": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "log": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "warn": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
 }
@@ -84,32 +84,32 @@ exports[`buildOptions should return defaults for invalid args 2`] = `
 Object {
   "debug": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "error": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "exception": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "info": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "log": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "warn": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
 }
@@ -119,32 +119,32 @@ exports[`buildOptions should return defaults for invalid args 3`] = `
 Object {
   "debug": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "error": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "exception": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "info": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "log": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "warn": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
 }
@@ -154,32 +154,32 @@ exports[`buildOptions should return defaults for invalid args 4`] = `
 Object {
   "debug": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "error": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "exception": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "info": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "log": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
   "warn": Object {
     "injectFileName": true,
-    "injectScope": true,
+    "injectScope": false,
     "injectVariableName": true,
   },
 }
