@@ -1,6 +1,10 @@
 import pluginTester from 'babel-plugin-tester';
 import path from 'path';
+import fs from 'fs';
 import captainsLog from './index';
+
+const loadFromFile = filePath =>
+  fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
 
 pluginTester({
   plugin: captainsLog,
@@ -76,7 +80,7 @@ pluginTester({
     `,
     {
       title: 'Method options',
-      fixture: path.resolve(__dirname, './__fixtures__/method-check/code.js'),
+      code: loadFromFile('./__fixtures__/method-check/code.js'),
       pluginOptions: {
         methods: ['debug', 'log', 'info'],
       },
