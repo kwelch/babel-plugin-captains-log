@@ -1,5 +1,5 @@
 const defaultSettings = {
-  injectScope: true,
+  injectScope: false,
   injectVariableName: true,
   injectFileName: true,
 };

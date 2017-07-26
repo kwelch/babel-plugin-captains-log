@@ -17,6 +17,15 @@
         "doc",
         "test"
       ]
+    },
+    {
+      "login": "mqklin",
+      "name": "Maksim",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/9456433?v=4",
+      "profile": "https://github.com/mqklin",
+      "contributions": [
+        "bug"
+      ]
     }
   ]
 }
