@@ -81,5 +81,10 @@ pluginTester({
         methods: ['debug', 'log', 'info'],
       },
     },
+    {
+      title: 'Merge options - fix #12',
+      code: `console.log(a);`,
+      pluginOptions: { injectScope: false },
+    },
   ],
 });

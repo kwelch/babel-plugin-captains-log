@@ -225,3 +225,13 @@ function logAll() {
 }
 "
 `;
+
+exports[`12. Merge options - fix #12 1`] = `
+"
+console.log(a);
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+console.log(\\"unknown(1:0)\\", \\"a\\", a);
+"
+`;

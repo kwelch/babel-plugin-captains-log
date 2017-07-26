@@ -1,10 +1,4 @@
-const defaultSettings = {
-  injectScope: true,
-  injectVariableName: true,
-  injectFileName: true,
-};
-
-const defaultMethods = ['debug', 'error', 'exception', 'info', 'log', 'warn'];
+import { buildOptions } from './utils/pluginOptions';
 
 const idNameSelector = path => path.node.id.name;
 const keyNameSelector = path => path.node.key.name;
@@ -35,7 +29,8 @@ export default function({ types: t }) {
         if (!looksLike(path.node, { name: 'console' })) {
           return;
         }
-        const settings = buildSettings(opts || {});
+        // find somewhere we can move this so that it only needs to be called once.
+        const settings = buildOptions(opts || {});
         const parentCallExp = path.findParent(t.isCallExpression);
         if (isTrackingConsoleCallStatement(path, parentCallExp, settings)) {
           callExpressions.add(parentCallExp);
@@ -43,7 +38,7 @@ export default function({ types: t }) {
       },
       Program: {
         exit(_, { file, opts }) {
-          const settings = buildSettings(opts || {});
+          const settings = buildOptions(opts || {});
           callExpressions.forEach(callExp => {
             if (!callExp || evaluatedExpressions.has(callExp)) {
               return;
@@ -98,20 +93,6 @@ export default function({ types: t }) {
       }
       return [...acc, arg];
     }, []);
-  }
-
-  function buildSettings(opts) {
-    // remove ignore patterns from settings since it has been consumed already
-    // eslint-disable-next-line no-unused-vars
-    const { methods, ignorePatterns, ...flags } = opts;
-    // output spreads the flags over each method
-    // in the future this could be expanded to allow method level config
-    return (methods || defaultMethods).reduce((acc, curr) => {
-      return {
-        ...acc,
-        [curr]: Object.values(flags).length ? flags : defaultSettings,
-      };
-    }, {});
   }
 
   function findCallScope(path, scope = []) {
