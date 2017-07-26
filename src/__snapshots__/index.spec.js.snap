@@ -205,7 +205,7 @@ function logAll() {
   console.assert(1 === 1);
   console.clear();
   console.count(\\"count\\");
-  console.debug(\\"/Users/welchk/_git/oss/babel-plugin-captains-log/src/__fixtures__/method-check/code.js(5:2)\\", \\"logAll:\\", \\"debug\\");
+  console.debug(\\"unknown(5:2)\\", \\"logAll:\\", \\"debug\\");
   console.dir(obj);
   console.error(\\"error\\");
   console.exception(\\"exception\\");
@@ -213,8 +213,8 @@ function logAll() {
   console.groupEnd(\\"group\\");
   console.groupCollapsed(\\"groupCollapsed\\");
   console.groupEnd(\\"groupCollapsed\\");
-  console.info(\\"/Users/welchk/_git/oss/babel-plugin-captains-log/src/__fixtures__/method-check/code.js(13:2)\\", \\"logAll:\\", \\"info\\");
-  console.log(\\"/Users/welchk/_git/oss/babel-plugin-captains-log/src/__fixtures__/method-check/code.js(14:2)\\", \\"logAll:\\", \\"log\\");
+  console.info(\\"unknown(13:2)\\", \\"logAll:\\", \\"info\\");
+  console.log(\\"unknown(14:2)\\", \\"logAll:\\", \\"log\\");
   console.profile(\\"profile\\");
   console.profileEnd(\\"profile\\");
   console.table([\\"table\\"]);
