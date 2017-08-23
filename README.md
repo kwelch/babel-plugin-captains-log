@@ -91,7 +91,7 @@ This option provides control over which files are adjusted. Ignore Patterns is s
 Flags are values set for all methods and are used to turn that feature on or off. Flags are not merged with defaults to allow for maximum control.
 
 
-#### Variable Name
+#### Variable Name Labels
 **Default**: `true`
 
 ```
@@ -104,7 +104,7 @@ Flags are values set for all methods and are used to turn that feature on or off
 }
 ```
 
-#### Inject File Name
+#### File Location Data
 **Default**: `true`
 
 ```
