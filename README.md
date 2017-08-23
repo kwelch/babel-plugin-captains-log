@@ -24,20 +24,18 @@ Default bahavior:
 
 **Transforms**
 ```diff
-function add(a, b) {
--  console.log(a, b);
-+  console.log("simple.js(2:2)", "a", a, "b", b);
+function add(a = 1, b = 2) {
+  console.log(a); // outputs: 1
   return a + b;
 }
-
-const subtract = (a, b) => {
--  console.log(a, b);
-+  console.info("simple.js(7:2)", "a", a, "b", b);
-  return a - b;
-};
+↓ ↓ ↓ ↓ ↓ ↓
+function add(a = 1, b = 2) {
+  console.log("simple.js(2:2)", "a", a); // outputs: "simple.js(2:2)" "a" 1
+  return a + b;
+}
 ```
 
-See the [Roadmap][roadmap] for a future features and oppurtunities to contribute.
+See the [Issues][issues] for a future features and oppurtunities to contribute.
 
 ## Requirements
 
@@ -150,4 +148,4 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
 
 
-[roadmap]: https://github.com/kwelch/babel-plugin-captains-log#roadmap
+[issues]: https://github.com/kwelch/babel-plugin-captains-log/issues
