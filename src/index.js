@@ -44,7 +44,7 @@ export default function({ types: t }) {
               return;
             }
             const options = settings[getConsoleCallMethodName(callExp)];
-            let args = callExp.node.arguments;
+            let args = callExp.get('arguments');
 
             if (options.injectVariableName) {
               args = injectVariableNames(args);
@@ -64,7 +64,7 @@ export default function({ types: t }) {
               const lineCol = `(${start.line}:${start.column})`;
               args = prependArguments(args, `${filename}${lineCol}`);
             }
-            callExp.node.arguments = args;
+            callExp.set('arguments', args);
           });
         },
       },
@@ -88,10 +88,10 @@ export default function({ types: t }) {
 
   function injectVariableNames(args = []) {
     return args.reduce((acc, arg) => {
-      if (t.isIdentifier(arg)) {
-        return [...acc, t.stringLiteral(arg.name), arg];
+      if (!t.isLiteral(arg)) {
+        return [...acc, t.stringLiteral(arg.getSource()), arg.node];
       }
-      return [...acc, arg];
+      return [...acc, arg.node];
     }, []);
   }
 

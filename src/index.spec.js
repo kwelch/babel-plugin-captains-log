@@ -90,5 +90,12 @@ pluginTester({
       code: `console.log(a);`,
       pluginOptions: { injectScope: false },
     },
+    `
+    console.log(a);
+    console.log(obj.prop);
+    console.log(obj.method());
+    console.log(obj.nested.prop);
+    console.log(method());
+    `,
   ],
 });

@@ -168,7 +168,7 @@ class ToDoComponent {
 
 class ToDoComponent {
   render() {
-    console.log(\\"unknown(3:4)\\", this.props);
+    console.log(\\"unknown(3:4)\\", \\"this.props\\", this.props);
   }
 }
 "
@@ -233,5 +233,23 @@ console.log(a);
       ↓ ↓ ↓ ↓ ↓ ↓
 
 console.log(\\"unknown(1:0)\\", \\"a\\", a);
+"
+`;
+
+exports[`13. babel-plugin-captains-log 1`] = `
+"
+console.log(a);
+console.log(obj.prop);
+console.log(obj.method());
+console.log(obj.nested.prop);
+console.log(method());
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+console.log(\\"unknown(1:0)\\", \\"a\\", a);
+console.log(\\"unknown(2:0)\\", \\"obj.prop\\", obj.prop);
+console.log(\\"unknown(3:0)\\", \\"obj.method()\\", obj.method());
+console.log(\\"unknown(4:0)\\", \\"obj.nested.prop\\", obj.nested.prop);
+console.log(\\"unknown(5:0)\\", \\"method()\\", method());
 "
 `;
