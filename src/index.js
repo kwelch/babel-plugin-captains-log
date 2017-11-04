@@ -23,6 +23,13 @@ export default function({ types: t }) {
     name,
     visitor: {
       Identifier(path, { opts = {}, file }) {
+        // console.info(path);
+        // console.info(file);
+
+        // convert console to logger;
+        if (path.container.object.name === 'console') {
+          path.container.object.name = 'logger';
+        }
         if (matchesIgnorePattern(opts.ignorePatterns, file)) {
           return;
         }
@@ -38,6 +45,8 @@ export default function({ types: t }) {
       },
       Program: {
         exit(_, { file, opts }) {
+          // console.info(file);
+          // console.info(opts);
           const settings = buildOptions(opts || {});
           callExpressions.forEach(callExp => {
             if (!callExp || evaluatedExpressions.has(callExp)) {
@@ -65,7 +74,10 @@ export default function({ types: t }) {
               args = prependArguments(args, `${filename}${lineCol}`);
             }
             callExp.set('arguments', args);
+            // console.info(callExp);
           });
+
+          // console.info(callExpressions);
         },
       },
     },
