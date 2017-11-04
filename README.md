@@ -1,3 +1,6 @@
+# this project changed from Captain's Log (☠️)
+just add console to logger.
+
 # Captain's Log (☠️)
 
 
