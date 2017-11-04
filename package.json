@@ -1,6 +1,6 @@
 {
-  "name": "babel-plugin-captains-log",
-  "version": "1.0.1",
+  "name": "babel-plugin-console-convert-logger",
+  "version": "0.9.0",
   "files": [
     "dist"
   ],
