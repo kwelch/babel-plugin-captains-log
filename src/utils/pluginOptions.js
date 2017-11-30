@@ -7,7 +7,7 @@ const defaultSettings = {
 
 const defaultMethods = ['debug', 'error', 'exception', 'info', 'log', 'warn'];
 
-// this should deep merge in the furture when we are dealing with more than just flags
+// this should deep merge in the future when we are dealing with more than just flags
 const mergeOptions = options => {
   const sanitizedOptions = Object.keys(options || {})
     .filter(key => Object.keys(defaultSettings).includes(key))
