@@ -6,6 +6,7 @@ Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
 }
 `;
@@ -16,31 +17,37 @@ Object {
     "injectFileName": false,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "error": Object {
     "injectFileName": false,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "exception": Object {
     "injectFileName": false,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "info": Object {
     "injectFileName": false,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "log": Object {
     "injectFileName": false,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "warn": Object {
     "injectFileName": false,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
 }
 `;
@@ -51,31 +58,37 @@ Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "error": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "exception": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "info": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "log": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "warn": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
 }
 `;
@@ -86,31 +99,37 @@ Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "error": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "exception": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "info": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "log": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "warn": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
 }
 `;
@@ -121,31 +140,37 @@ Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "error": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "exception": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "info": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "log": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "warn": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
 }
 `;
@@ -156,31 +181,37 @@ Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "error": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "exception": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "info": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "log": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
   "warn": Object {
     "injectFileName": true,
     "injectScope": false,
     "injectVariableName": true,
+    "useFileNameRelativeToProjectRoot": false,
   },
 }
 `;
