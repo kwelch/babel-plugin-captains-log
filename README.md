@@ -117,22 +117,6 @@ Flags are values set for all methods and are used to turn that feature on or off
 }
 ```
 
-#### Parse Location Data Relative To Project Root
-False by default to not alter existing functionality. **Requires** `injectFileName` be set to true. Will attempt to return fileName thats is relative to the project root.
-
-**Default**: `false`
-
-```
-{
-  plugins: [
-    ["captains-log", {
-      "injectFileName": true,
-      "useFileNameRelativeToProjectRoot": true
-    }]
-  ]
-}
-```
-
 #### Inject Scope _(Experimental)_
 _This has a few issues with other plugins particularly react-hot-loader, as it changes method names. Also, it was written for recursion which adds too much noise to the console statement which is against this libraries purpose_
 

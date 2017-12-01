@@ -2,7 +2,6 @@ const defaultSettings = {
   injectScope: false,
   injectVariableName: true,
   injectFileName: true,
-  useFileNameRelativeToProjectRoot: false,
 };
 
 const defaultMethods = ['debug', 'error', 'exception', 'info', 'log', 'warn'];

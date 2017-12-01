@@ -1,5 +1,5 @@
 import { buildOptions } from './utils/pluginOptions';
-import path from 'path';
+import { getFileName } from './utils/getFileName';
 
 const idNameSelector = path => path.node.id.name;
 const keyNameSelector = path => path.node.key.name;
@@ -69,32 +69,6 @@ export default function({ types: t }) {
       },
     },
   };
-  function getFileName( file, options ) {
-    if( !file )
-    {
-      return '';
-    }
-
-    //by default we just passback the file name so the plugin works like it always has
-    if( !options.useFileNameRelativeToProjectRoot )
-    {
-      return file.opts.filename;
-    }
-
-    //if useFileNameRelativeToProjectRoot is set to true
-    //we will attempt to parse the file name relative to project root
-    //
-    //when using babel-cli the path is already relative, in my testing
-    //when used from webpack (via create-react-app) the path is absulute
-    //
-    //first we will try to resolve the path to an absulute path
-    //then strip off the project root and return this
-
-    let baseDir = process.env.PWD;
-    let absolutePath = path.resolve( file.opts.filename );
-
-    return absolutePath.replace( baseDir, '.' )
-  }
 
   function matchesIgnorePattern(ignorePatterns = ['node_modules'], file) {
     return ignorePatterns.some(pattern => file.opts.filename.includes(pattern));
