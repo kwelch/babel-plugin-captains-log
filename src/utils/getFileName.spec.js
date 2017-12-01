@@ -11,8 +11,8 @@ describe('getfileName util fucntion', () => {
   test( 'should return properly scoped file name', () => {
     let file = {
       opts: {
-        filename: 'path/to/file.js'
-      }
+        filename: 'path/to/file.js',
+      },
     }
 
     expect( getFileName(file) ).toEqual('./path/to/file.js');
