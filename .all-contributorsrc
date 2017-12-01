@@ -26,6 +26,16 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "mntbkr",
+      "name": "Neil Holcomb",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/143342?v=4",
+      "profile": "https://github.com/mntbkr",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ]
 }

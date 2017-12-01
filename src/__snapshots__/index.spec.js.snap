@@ -6,7 +6,7 @@ console.log('sup dawg')
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-console.log('unknown(1:0)', 'sup dawg');
+console.log('./unknown(1:0)', 'sup dawg');
 "
 `;
 
@@ -20,7 +20,7 @@ function add(a, b) {
       ↓ ↓ ↓ ↓ ↓ ↓
 
 function add(a, b) {
-  console.log(\\"unknown(2:2)\\", \\"a\\", a, \\"b\\", b);
+  console.log(\\"./unknown(2:2)\\", \\"a\\", a, \\"b\\", b);
   return a + b;
 }
 "
@@ -36,7 +36,7 @@ const subtract = (a, b) => {
       ↓ ↓ ↓ ↓ ↓ ↓
 
 const subtract = (a, b) => {
-  console.info(\\"unknown(2:2)\\", \\"a\\", a, \\"b\\", b);
+  console.info(\\"./unknown(2:2)\\", \\"a\\", a, \\"b\\", b);
   return a - b;
 };
 "
@@ -53,7 +53,7 @@ multiple = () => {
 
 let multiply;
 multiple = () => {
-  console.log(\\"unknown(3:2)\\", \\"3\\");
+  console.log(\\"./unknown(3:2)\\", \\"3\\");
 };
 "
 `;
@@ -69,7 +69,7 @@ divide = function() {
 
 let divide;
 divide = function () {
-  console.log(\\"unknown(3:2)\\", \\"4\\");
+  console.log(\\"./unknown(3:2)\\", \\"4\\");
 };
 "
 `;
@@ -83,7 +83,7 @@ const power = function pow() {
       ↓ ↓ ↓ ↓ ↓ ↓
 
 const power = function pow() {
-  console.log(\\"unknown(2:2)\\", 5);
+  console.log(\\"./unknown(2:2)\\", 5);
 };
 "
 `;
@@ -106,13 +106,13 @@ const obj = {
 
 const obj = {
   method1: function () {
-    console.log(\\"unknown(3:4)\\", 6);
+    console.log(\\"./unknown(3:4)\\", 6);
   },
   method2: () => {
-    console.log(\\"unknown(6:4)\\", 7);
+    console.log(\\"./unknown(6:4)\\", 7);
   },
   method3() {
-    console.log(\\"unknown(9:4)\\", 8);
+    console.log(\\"./unknown(9:4)\\", 8);
   }
 };
 "
@@ -140,16 +140,16 @@ const Component = () => {
 
 const Component = () => {
   const privateMethod = () => {
-    console.log(\\"unknown(3:4)\\", 1);
+    console.log(\\"./unknown(3:4)\\", 1);
   };
   return class HighOrderComponent {
     showList() {
       arr.map(i => {
-        console.log(\\"unknown(8:8)\\", \\"i\\", i);
+        console.log(\\"./unknown(8:8)\\", \\"i\\", i);
       });
     }
     render() {
-      console.log(\\"unknown(12:6)\\", 2);
+      console.log(\\"./unknown(12:6)\\", 2);
     }
   };
 };
@@ -168,7 +168,7 @@ class ToDoComponent {
 
 class ToDoComponent {
   render() {
-    console.log(\\"unknown(3:4)\\", \\"this.props\\", this.props);
+    console.log(\\"./unknown(3:4)\\", \\"this.props\\", this.props);
   }
 }
 "
@@ -205,7 +205,7 @@ function logAll() {
   console.assert(1 === 1);
   console.clear();
   console.count(\\"count\\");
-  console.debug(\\"unknown(5:2)\\", \\"debug\\");
+  console.debug(\\"./unknown(5:2)\\", \\"debug\\");
   console.dir(obj);
   console.error(\\"error\\");
   console.exception(\\"exception\\");
@@ -213,8 +213,8 @@ function logAll() {
   console.groupEnd(\\"group\\");
   console.groupCollapsed(\\"groupCollapsed\\");
   console.groupEnd(\\"groupCollapsed\\");
-  console.info(\\"unknown(13:2)\\", \\"info\\");
-  console.log(\\"unknown(14:2)\\", \\"log\\");
+  console.info(\\"./unknown(13:2)\\", \\"info\\");
+  console.log(\\"./unknown(14:2)\\", \\"log\\");
   console.profile(\\"profile\\");
   console.profileEnd(\\"profile\\");
   console.table([\\"table\\"]);
@@ -232,7 +232,7 @@ console.log(a);
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-console.log(\\"unknown(1:0)\\", \\"a\\", a);
+console.log(\\"./unknown(1:0)\\", \\"a\\", a);
 "
 `;
 
@@ -246,10 +246,10 @@ console.log(method());
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-console.log(\\"unknown(1:0)\\", \\"a\\", a);
-console.log(\\"unknown(2:0)\\", \\"obj.prop\\", obj.prop);
-console.log(\\"unknown(3:0)\\", \\"obj.method()\\", obj.method());
-console.log(\\"unknown(4:0)\\", \\"obj.nested.prop\\", obj.nested.prop);
-console.log(\\"unknown(5:0)\\", \\"method()\\", method());
+console.log(\\"./unknown(1:0)\\", \\"a\\", a);
+console.log(\\"./unknown(2:0)\\", \\"obj.prop\\", obj.prop);
+console.log(\\"./unknown(3:0)\\", \\"obj.method()\\", obj.method());
+console.log(\\"./unknown(4:0)\\", \\"obj.nested.prop\\", obj.nested.prop);
+console.log(\\"./unknown(5:0)\\", \\"method()\\", method());
 "
 `;

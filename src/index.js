@@ -1,4 +1,5 @@
 import { buildOptions } from './utils/pluginOptions';
+import { getFileName } from './utils/getFileName';
 
 const idNameSelector = path => path.node.id.name;
 const keyNameSelector = path => path.node.key.name;
@@ -56,10 +57,8 @@ export default function({ types: t }) {
             }
 
             if (options.injectFileName) {
-              let filename;
-              if (file) {
-                filename = file.opts.filename;
-              }
+              let filename = getFileName(file, options);
+
               const start = callExp.node.loc.start;
               const lineCol = `(${start.line}:${start.column})`;
               args = prependArguments(args, `${filename}${lineCol}`);
@@ -70,6 +69,7 @@ export default function({ types: t }) {
       },
     },
   };
+
   function matchesIgnorePattern(ignorePatterns = ['node_modules'], file) {
     return ignorePatterns.some(pattern => file.opts.filename.includes(pattern));
   }
