@@ -44,7 +44,7 @@ export default function({ types: t }) {
               return;
             }
             const options = settings[getConsoleCallMethodName(callExp)];
-            let args = callExp.node.arguments;
+            let args = callExp.get('arguments');
 
             if (options.injectVariableName) {
               args = injectVariableNames(args);
