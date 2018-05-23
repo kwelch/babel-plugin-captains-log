@@ -1,22 +1,21 @@
 language: node_js
-sudo: false
-language: node_js
 cache:
   directories:
-    - node_modules
+    - ~/.npm
 notifications:
   email: false
 node_js:
+  - '9'
+  - '8'
   - '6'
-before_script:
-  - npm prune
+  - '4'
 script:
-  - yarn run lint
-  - yarn run build
-  - yarn run test -- --coverage
+  - yarn lint
+  - yarn build
+  - yarn test -- --coverage
 after_success:
-  - yarn run report-coverage
-  - yarn run release
+  - yarn report-coverage
+  - yarn travis-deploy-once "yarn semantic-release"
 branches:
-  only:
-    - master
+  except:
+    - /^v\d+\.\d+\.\d+$/
