@@ -10,9 +10,8 @@ node_js:
   - '6'
   - '4'
 script:
-  - yarn lint
   - yarn build
-  - yarn test -- --coverage
+  - yarn test --coverage
 after_success:
   - yarn report-coverage
   - yarn travis-deploy-once "yarn semantic-release"
