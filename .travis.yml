@@ -2,6 +2,9 @@ language: node_js
 cache:
   directories:
     - ~/.npm
+node_js:
+  - 'node'
+  - '8'
 script:
   - yarn build
   - yarn test --coverage
