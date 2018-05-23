@@ -87,23 +87,21 @@ export default function({ types: t }) {
   }
 
   function injectVariableNames(args = []) {
-    return args.reduce((acc, arg) => {
+    var result = [];
+    args.forEach(arg => {
       if (!t.isLiteral(arg)) {
-        return [...acc, t.stringLiteral(arg.getSource()), arg.node];
+        result.push(t.stringLiteral(arg.getSource()), arg.node);
+      } else {
+        result.push(arg.node);
       }
-      return [...acc, arg.node];
-    }, []);
+    });
+    return result;
   }
 
   function findCallScope(path, scope = []) {
-    const parentFunc = path.findParent(path =>
-      Object.keys(scopeHandlers).includes(path.type)
-    );
+    const parentFunc = path.findParent(path => Object.keys(scopeHandlers).includes(path.type));
     if (parentFunc) {
-      return findCallScope(parentFunc, [
-        scopeHandlers[parentFunc.type](parentFunc),
-        ...scope,
-      ]);
+      return findCallScope(parentFunc, [scopeHandlers[parentFunc.type](parentFunc), ...scope]);
     }
     return scope.length ? `${scope.join('.')}:` : '';
   }
