@@ -6,3 +6,4 @@ packages/
 
 dist/
 coverage/
+package-lock.json
