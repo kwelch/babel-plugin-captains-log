@@ -22,14 +22,17 @@ export default function({ types: t }) {
   return {
     name,
     visitor: {
-      Identifier(path, { opts = {}, file }) {
-        if (matchesIgnorePattern(opts.ignorePatterns, file)) {
+      Identifier(path, state) {
+        const {opts= {}} = state;
+        const filename = getFilename(state);
+
+        if (matchesIgnorePattern(opts.ignorePatterns, filename)) {
           return;
         }
         if (!looksLike(path.node, { name: 'console' })) {
           return;
         }
-        // find somewhere we can move this so that it only needs to be called once.
+        // TODO: find somewhere we can move this so that it only needs to be called once.
         const settings = buildOptions(opts || {});
         const parentCallExp = path.findParent(t.isCallExpression);
         if (isTrackingConsoleCallStatement(path, parentCallExp, settings)) {
@@ -37,8 +40,8 @@ export default function({ types: t }) {
         }
       },
       Program: {
-        exit(_, { file, opts }) {
-          const settings = buildOptions(opts || {});
+        exit(_, state) {
+          const settings = buildOptions(state.opts || {});
           callExpressions.forEach(callExp => {
             if (!callExp || evaluatedExpressions.has(callExp)) {
               return;
@@ -56,10 +59,7 @@ export default function({ types: t }) {
             }
 
             if (options.injectFileName) {
-              let filename;
-              if (file) {
-                filename = file.opts.filename;
-              }
+              const filename = getFilename(state);
               const start = callExp.node.loc.start;
               const lineCol = `(${start.line}:${start.column})`;
               args = prependArguments(args, `${filename}${lineCol}`);
@@ -70,8 +70,8 @@ export default function({ types: t }) {
       },
     },
   };
-  function matchesIgnorePattern(ignorePatterns = ['node_modules'], file) {
-    return ignorePatterns.some(pattern => file.opts.filename.includes(pattern));
+  function matchesIgnorePattern(ignorePatterns = ['node_modules'], filename) {
+    return ignorePatterns.some(pattern => filename.includes(pattern));
   }
 
   function getConsoleCallMethodName(callExpression) {
@@ -131,4 +131,9 @@ function looksLike(a, b) {
 
 function isPrimitive(val) {
   return val == null || /^[sbn]/.test(typeof val);
+}
+
+function getFilename({file, filename}) {
+  const returnVal = filename || file.opts.filename || 'unknown';
+  return returnVal;
 }

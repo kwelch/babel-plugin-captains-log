@@ -51,7 +51,7 @@ npm install --save-dev babel-plugin-captains-log
 To include the plugin in your project, create or open your .babelrc file at the root of your project. Then, add namespaces to your plugin list:
 ```
 {
-  plugins: ["captains-log"]
+  plugins: ["babel-plugin-captains-log"]
 }
 ```
 
@@ -65,7 +65,7 @@ This option provides control over which console statments are adjusted. Methods 
 ```
 {
   plugins: [
-    ["captains-log", {
+    ["babel-plugin-captains-log", {
       "methods": ['debug', 'info']
     }]
   ]
@@ -80,7 +80,7 @@ This option provides control over which files are adjusted. Ignore Patterns is s
 ```
 {
   plugins: [
-    ["captains-log", {
+    ["babel-plugin-captains-log", {
       "ignorePatterns": ["node_modules", ".spec.js"]
     }]
   ]
@@ -97,7 +97,7 @@ Flags are values set for all methods and are used to turn that feature on or off
 ```
 {
   plugins: [
-    ["captains-log", {
+    ["babel-plugin-captains-log", {
       "injectVariableName": true
     }]
   ]
@@ -110,7 +110,7 @@ Flags are values set for all methods and are used to turn that feature on or off
 ```
 {
   plugins: [
-    ["captains-log", {
+    ["babel-plugin-captains-log", {
       "injectFileName": true
     }]
   ]
@@ -125,7 +125,7 @@ _This has a few issues with other plugins particularly react-hot-loader, as it c
 ```
 {
   plugins: [
-    ["captains-log", {
+    ["babel-plugin-captains-log", {
       "injectScope": true
     }]
   ]
