@@ -1,19 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log 1. babel-plugin-captains-log: 1. babel-plugin-captains-log 1`] = `
-"
+
 console.log('sup dawg')
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"use strict\\";
+console.log("unknown(1:0)", "sup dawg");
 
-console.log(\\"unknown(1:0)\\", 'sup dawg');
-"
+
 `;
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log 2. babel-plugin-captains-log: 2. babel-plugin-captains-log 1`] = `
-"
+
 function add(a, b) {
   console.log(a, b);
   return a + b;
@@ -21,17 +20,16 @@ function add(a, b) {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"use strict\\";
-
 function add(a, b) {
-  console.log(\\"unknown(2:2)\\", \\"a\\", a, \\"b\\", b);
+  console.log("unknown(2:2)", "a", a, "b", b);
   return a + b;
 }
-"
+
+
 `;
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log 3. babel-plugin-captains-log: 3. babel-plugin-captains-log 1`] = `
-"
+
 const subtract = (a, b) => {
   console.info(a, b);
   return a - b;
@@ -39,71 +37,67 @@ const subtract = (a, b) => {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"use strict\\";
-
 const subtract = (a, b) => {
-  console.info(\\"unknown(2:2)\\", \\"a\\", a, \\"b\\", b);
+  console.info("unknown(2:2)", "a", a, "b", b);
   return a - b;
 };
-"
+
+
 `;
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log 4. babel-plugin-captains-log: 4. babel-plugin-captains-log 1`] = `
-"
+
 let multiply;
 multiple = () => {
-  console.log(\\"3\\");
+  console.log("3");
 };
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"use strict\\";
-
 let multiply;
 
 multiple = () => {
-  console.log(\\"unknown(3:2)\\", \\"3\\");
+  console.log("unknown(3:2)", "3");
 };
-"
+
+
 `;
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log 5. babel-plugin-captains-log: 5. babel-plugin-captains-log 1`] = `
-"
+
 let divide;
 divide = function() {
-  console.log(\\"4\\");
+  console.log("4");
 };
 
       ↓ ↓ ↓ ↓ ↓ ↓
-
-\\"use strict\\";
 
 let divide;
 
 divide = function () {
-  console.log(\\"unknown(3:2)\\", \\"4\\");
+  console.log("unknown(3:2)", "4");
 };
-"
+
+
 `;
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log 6. babel-plugin-captains-log: 6. babel-plugin-captains-log 1`] = `
-"
+
 const power = function pow() {
   console.log(5);
 };
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"use strict\\";
-
 const power = function pow() {
-  console.log(\\"unknown(2:2)\\", 5);
+  console.log("unknown(2:2)", 5);
 };
-"
+
+
 `;
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log 7. babel-plugin-captains-log: 7. babel-plugin-captains-log 1`] = `
-"
+
 const obj = {
   method1: function() {
     console.log(6);
@@ -118,26 +112,24 @@ const obj = {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"use strict\\";
-
 const obj = {
   method1: function () {
-    console.log(\\"unknown(3:4)\\", 6);
+    console.log("unknown(3:4)", 6);
   },
   method2: () => {
-    console.log(\\"unknown(6:4)\\", 7);
+    console.log("unknown(6:4)", 7);
   },
 
   method3() {
-    console.log(\\"unknown(9:4)\\", 8);
-  }
-
+    console.log("unknown(9:4)", 8);
+  },
 };
-"
+
+
 `;
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log 8. babel-plugin-captains-log: 8. babel-plugin-captains-log 1`] = `
-"
+
 const Component = () => {
   const privateMethod = () => {
     console.log(1);
@@ -156,31 +148,29 @@ const Component = () => {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"use strict\\";
-
 const Component = () => {
   const privateMethod = () => {
-    console.log(\\"unknown(3:4)\\", 1);
+    console.log("unknown(3:4)", 1);
   };
 
   return class HighOrderComponent {
     showList() {
-      arr.map(i => {
-        console.log(\\"unknown(8:8)\\", \\"i\\", i);
+      arr.map((i) => {
+        console.log("unknown(8:8)", "i", i);
       });
     }
 
     render() {
-      console.log(\\"unknown(12:6)\\", 2);
+      console.log("unknown(12:6)", 2);
     }
-
   };
 };
-"
+
+
 `;
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log 9. babel-plugin-captains-log: 9. babel-plugin-captains-log 1`] = `
-"
+
 class ToDoComponent {
   render() {
     console.log(this.props);
@@ -189,19 +179,17 @@ class ToDoComponent {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"use strict\\";
-
 class ToDoComponent {
   render() {
-    console.log(\\"unknown(3:4)\\", \\"this.props\\", this.props);
+    console.log("unknown(3:4)", "this.props", this.props);
   }
-
 }
-"
+
+
 `;
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log 10. babel-plugin-captains-log: 10. babel-plugin-captains-log 1`] = `
-"
+
 console.log(a);
 console.log(obj.prop);
 console.log(obj.method());
@@ -210,78 +198,75 @@ console.log(method());
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"use strict\\";
+console.log("unknown(1:0)", "a", a);
+console.log("unknown(2:0)", "obj.prop", obj.prop);
+console.log("unknown(3:0)", "obj.method()", obj.method());
+console.log("unknown(4:0)", "obj.nested.prop", obj.nested.prop);
+console.log("unknown(5:0)", "method()", method());
 
-console.log(\\"unknown(1:0)\\", \\"a\\", a);
-console.log(\\"unknown(2:0)\\", \\"obj.prop\\", obj.prop);
-console.log(\\"unknown(3:0)\\", \\"obj.method()\\", obj.method());
-console.log(\\"unknown(4:0)\\", \\"obj.nested.prop\\", obj.nested.prop);
-console.log(\\"unknown(5:0)\\", \\"method()\\", method());
-"
+
 `;
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log Merge options - fix #12: Merge options - fix #12 1`] = `
-"
+
 console.log(a);
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"use strict\\";
+console.log("unknown(1:0)", "a", a);
 
-console.log(\\"unknown(1:0)\\", \\"a\\", a);
-"
+
 `;
 
 exports[`babel-plugin-captains-log babel-plugin-captains-log Method options: Method options 1`] = `
-"
+
 function logAll() {
   console.assert(1 === 1);
   console.clear();
-  console.count(\\"count\\");
-  console.debug(\\"debug\\");
+  console.count("count");
+  console.debug("debug");
   console.dir(obj);
-  console.error(\\"error\\");
-  console.exception(\\"exception\\");
-  console.group(\\"group\\");
-  console.groupEnd(\\"group\\");
-  console.groupCollapsed(\\"groupCollapsed\\");
-  console.groupEnd(\\"groupCollapsed\\");
-  console.info(\\"info\\");
-  console.log(\\"log\\");
-  console.profile(\\"profile\\");
-  console.profileEnd(\\"profile\\");
-  console.table([\\"table\\"]);
-  console.time(\\"time\\");
-  console.timeEnd(\\"time\\");
-  console.trace(\\"trace\\");
-  console.warn(\\"warn\\");
+  console.error("error");
+  console.exception("exception");
+  console.group("group");
+  console.groupEnd("group");
+  console.groupCollapsed("groupCollapsed");
+  console.groupEnd("groupCollapsed");
+  console.info("info");
+  console.log("log");
+  console.profile("profile");
+  console.profileEnd("profile");
+  console.table(["table"]);
+  console.time("time");
+  console.timeEnd("time");
+  console.trace("trace");
+  console.warn("warn");
 }
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-\\"use strict\\";
-
 function logAll() {
   console.assert(1 === 1);
   console.clear();
-  console.count(\\"count\\");
-  console.debug(\\"unknown(5:2)\\", \\"debug\\");
+  console.count("count");
+  console.debug("unknown(5:2)", "debug");
   console.dir(obj);
-  console.error(\\"error\\");
-  console.exception(\\"exception\\");
-  console.group(\\"group\\");
-  console.groupEnd(\\"group\\");
-  console.groupCollapsed(\\"groupCollapsed\\");
-  console.groupEnd(\\"groupCollapsed\\");
-  console.info(\\"unknown(13:2)\\", \\"info\\");
-  console.log(\\"unknown(14:2)\\", \\"log\\");
-  console.profile(\\"profile\\");
-  console.profileEnd(\\"profile\\");
-  console.table([\\"table\\"]);
-  console.time(\\"time\\");
-  console.timeEnd(\\"time\\");
-  console.trace(\\"trace\\");
-  console.warn(\\"warn\\");
+  console.error("error");
+  console.exception("exception");
+  console.group("group");
+  console.groupEnd("group");
+  console.groupCollapsed("groupCollapsed");
+  console.groupEnd("groupCollapsed");
+  console.info("unknown(13:2)", "info");
+  console.log("unknown(14:2)", "log");
+  console.profile("profile");
+  console.profileEnd("profile");
+  console.table(["table"]);
+  console.time("time");
+  console.timeEnd("time");
+  console.trace("trace");
+  console.warn("warn");
 }
-"
+
+
 `;

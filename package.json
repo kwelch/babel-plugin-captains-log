@@ -37,19 +37,17 @@
     "@babel/plugin-transform-runtime": "~7.3.4",
     "@babel/preset-env": "^7.3.4",
     "all-contributors-cli": "^6.1.2",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^24.1.0",
-    "babel-plugin-tester": "^6.0.0",
+    "babel-plugin-tester": "^9.2.0",
     "codecov": "^3.2.0",
-    "eslint": "^5.15.1",
-    "fs": "^0.0.1-security",
+    "eslint": "^7.3.1",
     "global": "^4.3.2",
-    "jest-cli": "^24.1.0",
-    "jest-runner-eslint": "^0.7.3",
-    "path": "^0.12.7",
-    "prettier": "^1.16.4",
-    "rimraf": "^2.6.3",
-    "semantic-release": "^15.13.3",
+    "jest-cli": "^26.1.0",
+    "jest-runner-eslint": "^0.9.0",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.1.1",
     "travis-deploy-once": "^5.0.11"
   },
   "jest": {
@@ -72,5 +70,8 @@
       }
     ]
   },
-  "dependencies": {}
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.5.0"
+  }
 }
