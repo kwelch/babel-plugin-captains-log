@@ -13,7 +13,7 @@
     "report-coverage": "codecov",
     "contribute": "all-contributors",
     "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once --pro"
   },
   "keywords": [
     "babel",
