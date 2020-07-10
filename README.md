@@ -1,6 +1,5 @@
 # Captain's Log (☠️)
 
-
 [![version](https://img.shields.io/npm/v/babel-plugin-captains-log.svg?style=flat-square)](http://npm.im/babel-plugin-captains-log)
 [![downloads](https://img.shields.io/npm/dm/babel-plugin-captains-log.svg?style=flat-square)](http://npm-stat.com/charts.html?package=babel-plugin-captains-log)
 [![Travis Build Status](https://img.shields.io/travis/kwelch/babel-plugin-captains-log.svg?style=flat-square)](https://travis-ci.org/kwelch/babel-plugin-captains-log)
@@ -18,11 +17,13 @@
 
 `babel-plugin-captains-log` injects helpful details into console statements.
 
-Default bahavior:
+Default behavior:
+
 - prepend console statement file & location
 - add inject variable name into console statements
 
 **Transforms**
+
 ```diff
 function add(a = 1, b = 2) {
   console.log(a); // outputs: 1
@@ -35,7 +36,7 @@ function add(a = 1, b = 2) {
 }
 ```
 
-See the [Issues][issues] for a future features and oppurtunities to contribute.
+See the [Issues][issues] for a future features and opportunities to contribute.
 
 ## Requirements
 
@@ -44,11 +45,13 @@ This is a Babel plugin so it requires Babel v6 to run.
 ## Installation
 
 This module is distributed using npm which comes bundled with node:
+
 ```
 npm install --save-dev babel-plugin-captains-log
 ```
 
 To include the plugin in your project, create or open your .babelrc file at the root of your project. Then, add namespaces to your plugin list:
+
 ```
 {
   plugins: ["babel-plugin-captains-log"]
@@ -58,7 +61,8 @@ To include the plugin in your project, create or open your .babelrc file at the 
 ## Options
 
 ### Methods
-This option provides control over which console statments are adjusted. Methods is set within your `.babelrc` as an array.
+
+This option provides control over which console statements are adjusted. Methods is set within your `.babelrc` as an array.
 
 **Default**: `["debug", "error", "exception", "info", "log", "warn"]`
 
@@ -73,6 +77,7 @@ This option provides control over which console statments are adjusted. Methods 
 ```
 
 ### Ignore Patterns
+
 This option provides control over which files are adjusted. Ignore Patterns is set within your `.babelrc` as an array of strings.
 
 **Default**: `["node_modules"]`
@@ -87,11 +92,28 @@ This option provides control over which files are adjusted. Ignore Patterns is s
 }
 ```
 
+### Use a logger other then console
+
+This option provides control over which files are adjusted. Ignore Patterns is set within your `.babelrc` as an array of strings.
+
+**Default**: `"console"`
+
+```
+{
+  plugins: [
+    ["babel-plugin-captains-log", {
+      "loggerName": "logger"
+    }]
+  ]
+}
+```
+
 ### Flags
+
 Flags are values set for all methods and are used to turn that feature on or off. Flags are not merged with defaults to allow for maximum control.
 
-
 #### Variable Name Labels
+
 **Default**: `true`
 
 ```
@@ -105,6 +127,7 @@ Flags are values set for all methods and are used to turn that feature on or off
 ```
 
 #### File Location Data
+
 **Default**: `true`
 
 ```
@@ -118,6 +141,7 @@ Flags are values set for all methods and are used to turn that feature on or off
 ```
 
 #### Inject Scope _(Experimental)_
+
 _This has a few issues with other plugins particularly react-hot-loader, as it changes method names. Also, it was written for recursion which adds too much noise to the console statement which is against this libraries purpose_
 
 **Default**: `false`
@@ -141,11 +165,13 @@ MIT
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+
 | [<img src="https://avatars0.githubusercontent.com/u/1295580?v=3" width="100px;"/><br /><sub>Kyle Welch</sub>](http://www.krwelch.com)<br />[💻](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Code") [📖](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Documentation") [⚠️](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Tests") | [<img src="https://avatars1.githubusercontent.com/u/9456433?v=4" width="100px;"/><br /><sub>Maksim</sub>](https://github.com/mqklin)<br />[🐛](https://github.com/kwelch/babel-plugin-captains-log/issues?q=author%3Amqklin "Bug reports") |
-| :---: | :---: |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
-
 
 [issues]: https://github.com/kwelch/babel-plugin-captains-log/issues
