@@ -50,6 +50,9 @@
     "semantic-release": "^17.1.1",
     "travis-deploy-once": "^5.0.11"
   },
+  "release": {
+    "branches": ["main"]
+  },
   "jest": {
     "coveragePathIgnorePatterns": [
       "node_modules",
