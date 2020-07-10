@@ -2,7 +2,7 @@
 
 [![version](https://img.shields.io/npm/v/babel-plugin-captains-log.svg?style=flat-square)](http://npm.im/babel-plugin-captains-log)
 [![downloads](https://img.shields.io/npm/dm/babel-plugin-captains-log.svg?style=flat-square)](http://npm-stat.com/charts.html?package=babel-plugin-captains-log)
-[![Travis Build Status](https://img.shields.io/travis/kwelch/babel-plugin-captains-log.svg?style=flat-square)](https://travis-ci.org/kwelch/babel-plugin-captains-log)
+[![Travis Build Status](https://img.shields.io/travis/kwelch/babel-plugin-captains-log.svg?style=flat-square)](https://travis-ci.com/kwelch/babel-plugin-captains-log.svg)
 [![codecov](https://codecov.io/gh/kwelch/babel-plugin-captains-log/branch/master/graph/badge.svg?style=flat-square)](https://codecov.io/gh/kwelch/babel-plugin-captains-log)
 
 [![MIT License](https://img.shields.io/npm/l/kwelch.svg?style=flat-square)](http://opensource.org/licenses/MIT)
