@@ -4,7 +4,8 @@ cache:
     - ~/.npm
 node_js:
   - "node"
-  - "14"
+  - "10"
+  - "12"
 script:
   - yarn build
   - yarn test --coverage
