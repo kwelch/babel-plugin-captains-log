@@ -3,51 +3,49 @@ import path from 'path';
 import fs from 'fs';
 import captainsLog from './index';
 
-const loadFromFile = filePath =>
-  fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
+const loadFromFile = (filePath) => fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
 
-describe('babel-plugin-captains-log', () => {
-  pluginTester({
-    plugin: captainsLog,
-    snapshot: true,
-    babelOptions: {
-      parserOpts: {},
-      generatorOpts: {},
-      babelrc: false,
-    },
-    tests: [
-      // { code: `anything.log();`, snapshot: false },
-      `console.log('sup dawg')`,
-      `
+pluginTester({
+  plugin: captainsLog,
+  pluginName: 'babel-plugin-captains-log',
+  snapshot: true,
+  babelOptions: {
+    parserOpts: {},
+    generatorOpts: {},
+    babelrc: false,
+  },
+  tests: [
+    `console.log('sup dawg')`,
+    `
       function add(a, b) {
         console.log(a, b);
         return a + b;
       }
       `,
-      `
+    `
       const subtract = (a, b) => {
         console.info(a, b);
         return a - b;
       };
       `,
-      `
+    `
       let multiply;
       multiple = () => {
         console.log("3");
       };
       `,
-      `
+    `
       let divide;
       divide = function() {
         console.log("4");
       };
       `,
-      `
+    `
       const power = function pow() {
         console.log(5);
       };
       `,
-      `
+    `
       const obj = {
         method1: function() {
           console.log(6);
@@ -60,7 +58,7 @@ describe('babel-plugin-captains-log', () => {
         },
       };
       `,
-      `
+    `
       const Component = () => {
         const privateMethod = () => {
           console.log(1);
@@ -77,32 +75,31 @@ describe('babel-plugin-captains-log', () => {
         };
       };
       `,
-      `
+    `
       class ToDoComponent {
         render() {
           console.log(this.props);
         }
       }
       `,
-      {
-        title: 'Method options',
-        code: loadFromFile('./__fixtures__/method-check/code.js'),
-        pluginOptions: {
-          methods: ['debug', 'log', 'info'],
-        },
+    {
+      title: 'Method options',
+      code: loadFromFile('./__fixtures__/method-check/code.js'),
+      pluginOptions: {
+        methods: ['debug', 'log', 'info'],
       },
-      {
-        title: 'Merge options - fix #12',
-        code: `console.log(a);`,
-        pluginOptions: { injectScope: false },
-      },
-      `
+    },
+    {
+      title: 'Merge options - fix #12',
+      code: `console.log(a);`,
+      pluginOptions: { injectScope: false },
+    },
+    `
       console.log(a);
       console.log(obj.prop);
       console.log(obj.method());
       console.log(obj.nested.prop);
       console.log(method());
       `,
-    ],
-  });
+  ],
 });
