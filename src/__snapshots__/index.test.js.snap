@@ -270,3 +270,57 @@ function logAll() {
 
 
 `;
+
+exports[`babel-plugin-captains-log scope injection nested: scope injection nested 1`] = `
+
+const Component = () => {
+  const privateMethod = () => {
+    console.log(1);
+  };
+  return class HighOrderComponent {
+    showList() {
+      arr.map(i => {
+        console.log(i);
+      });
+    }
+    render() {
+      console.log(2);
+    }
+  };
+};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const Component = () => {
+  const privateMethod = () => {
+    console.log("Component.privateMethod:", 1);
+  };
+
+  return class HighOrderComponent {
+    showList() {
+      arr.map((i) => {
+        console.log("Component.HighOrderComponent.showList:", "i", i);
+      });
+    }
+
+    render() {
+      console.log("Component.HighOrderComponent.render:", 2);
+    }
+  };
+};
+
+
+`;
+
+exports[`babel-plugin-captains-log scope injection: scope injection 1`] = `
+
+function fnWeAreIn() {console.log(a);}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+function fnWeAreIn() {
+  console.log("unknown(1:22)", "fnWeAreIn:", "a", a);
+}
+
+
+`;

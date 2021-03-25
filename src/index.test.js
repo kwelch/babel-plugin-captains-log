@@ -94,6 +94,36 @@ pluginTester({
       code: `console.log(a);`,
       pluginOptions: { injectScope: false },
     },
+    {
+      title: 'scope injection',
+      code: `function fnWeAreIn() {console.log(a);}`,
+      pluginOptions: { injectScope: true },
+    },
+    {
+      title: 'scope injection nested',
+      code: `
+      const Component = () => {
+        const privateMethod = () => {
+          console.log(1);
+        };
+        return class HighOrderComponent {
+          showList() {
+            arr.map(i => {
+              console.log(i);
+            });
+          }
+          render() {
+            console.log(2);
+          }
+        };
+      };
+      `,
+      pluginOptions: {
+        // turn of filename since it is distracting
+        injectFileName: false,
+        injectScope: true,
+      },
+    },
     `
       console.log(a);
       console.log(obj.prop);

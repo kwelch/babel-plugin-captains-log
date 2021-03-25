@@ -3,7 +3,7 @@
 [![version](https://img.shields.io/npm/v/babel-plugin-captains-log.svg?style=flat-square)](http://npm.im/babel-plugin-captains-log)
 [![downloads](https://img.shields.io/npm/dm/babel-plugin-captains-log.svg?style=flat-square)](http://npm-stat.com/charts.html?package=babel-plugin-captains-log)
 [![Travis Build Status](https://img.shields.io/travis/kwelch/babel-plugin-captains-log.svg?style=flat-square)](https://travis-ci.com/kwelch/babel-plugin-captains-log.svg)
-[![codecov](https://codecov.io/gh/kwelch/babel-plugin-captains-log/branch/master/graph/badge.svg?style=flat-square)](https://codecov.io/gh/kwelch/babel-plugin-captains-log)
+[![codecov](https://codecov.io/gh/kwelch/babel-plugin-captains-log/branch/main/graph/badge.svg?style=flat-square)](https://codecov.io/gh/kwelch/babel-plugin-captains-log)
 
 [![MIT License](https://img.shields.io/npm/l/kwelch.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
@@ -168,7 +168,6 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 
 | [<img src="https://avatars0.githubusercontent.com/u/1295580?v=3" width="100px;"/><br /><sub>Kyle Welch</sub>](http://www.krwelch.com)<br />[💻](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Code") [📖](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Documentation") [⚠️](https://github.com/kwelch/babel-plugin-captains-log/commits?author=kwelch "Tests") | [<img src="https://avatars1.githubusercontent.com/u/9456433?v=4" width="100px;"/><br /><sub>Maksim</sub>](https://github.com/mqklin)<br />[🐛](https://github.com/kwelch/babel-plugin-captains-log/issues?q=author%3Amqklin "Bug reports") |
 | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
