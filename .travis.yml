@@ -7,8 +7,8 @@ node_js:
   - "10"
   - "12"
 script:
-  - yarn build
   - yarn test --coverage
+  - yarn build
 after_success:
   - yarn report-coverage
   - yarn travis-deploy-once "yarn semantic-release"
