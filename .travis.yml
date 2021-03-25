@@ -3,9 +3,8 @@ cache:
   directories:
     - ~/.npm
 node_js:
-  - "node"
-  - "10"
-  - "12"
+  - "lts/*"
+  - node
 script:
   - yarn test --coverage
   - yarn build
